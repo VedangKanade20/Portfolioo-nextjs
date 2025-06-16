@@ -3,7 +3,7 @@ import React from 'react';
 
 export function Header() {
   return (
-    <div className="flex items-center gap-4 bg-transparent w-[100%]  p-4  text-white ">
+    <div className="flex items-center justify-start gap-4 bg-transparent w-[100%]  p-4  text-white ">
       <Image
         src="/myPhoto.png"
         width={40}
