@@ -1,9 +1,11 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { ShineBorder } from "./magicui/shine-border";
 
 export function CardDemo() {
   return (
-    <div className="max-w-xs w-full">
+    <div className="max-w-xs w-[520px]">
+       <ShineBorder />
       <div
         className={cn(
           "group w-full cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl mx-auto flex flex-col justify-end p-4 border border-transparent dark:border-neutral-800",
@@ -17,12 +19,13 @@ export function CardDemo() {
       >
         <div className="text relative z-50">
           <h1 className="font-bold text-xl md:text-3xl text-gray-50 relative">
-            Background Overlays
+            Crew Canvas
           </h1>
           <p className="font-normal text-base text-gray-50 relative my-4">
             This card is for some special elements, like displaying background
             gifs on hover only.
           </p>
+          <a href="/project" > Click here to see more</a>
         </div>
       </div>
     </div>
