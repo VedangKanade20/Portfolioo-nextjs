@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator"
 import SkillsCarousel from "@/components/SkillsCarousel";
 import ProjectsCard from "@/components/ProjectsCardView";
 import SkillsCard from "@/components/SkillsCard";
+import CopyEmailButton from "@/components/CopyEmailButton";
 
 
 export default function Home() {
@@ -38,7 +39,7 @@ export default function Home() {
           <button className="bg-transparent border border-white text-white px-4 py-2 rounded-md">Contact</button>
           </Link>
 
-          <button className="bg-transparent border border-white text-white px-4 py-2 rounded-md">⬇️ Resume</button>
+          <CopyEmailButton />
         </div>
       </section>
       <Separator className="my-8 bg-muted-foreground/20" />
