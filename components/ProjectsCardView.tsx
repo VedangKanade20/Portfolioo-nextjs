@@ -1,18 +1,14 @@
 import Link from "next/link";
 import { FolderGit2Icon } from "lucide-react";
 import { BorderBeam } from "@/components/magicui/border-beam";
-import { DotPattern } from "@/components/magicui/dot-pattern";
-import { cn } from "@/lib/utils";
+import { StarsBackground } from "./ui/stars-background";
+import { ShootingStars } from "./ui/shooting-stars";
 
 export default function ProjectsCard() {
   return (
     <div className="relative bg-[#1a1a1a] rounded-xl p-4 w-full max-w-sm border border-[#2a2a2a] shadow-md">
-       
-       <DotPattern
-        className={cn(
-          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-        )}
-      />
+       <StarsBackground />
+       <ShootingStars />
       <div className="absolute -top-4 left-4 w-10 h-10 flex items-center justify-center bg-[#1a1a1a] border border-[#333] rounded-full">
         <FolderGit2Icon size={18} className="text-white" />
       </div>

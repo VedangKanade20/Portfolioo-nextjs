@@ -1,8 +1,15 @@
 import React from 'react'
-import Link from "next/link";
+import Github from '@/components/GithubCard';
+import { Separator } from '@/components/ui/separator';
+import { ConfettiButton } from "@/components/magicui/confetti";
+import ExtraCards from '@/components/ExtraCards';
+import ProjectsCard from '@/components/ProjectsCardView';
+import ContactNavCard from '@/components/ContactNavCard';
+
 
 
 const page = () => {
+    
   return (
     <div className="min-h-screen flex flex-col py-12 gap-12 ">
       <section className="relative w-full  max-w-2xl justify-center ">
@@ -20,7 +27,7 @@ const page = () => {
           </div>
         </div>
       </section>
-
+          <Separator />
       {/* decription part*/}
 
       <section>
@@ -28,16 +35,45 @@ const page = () => {
       </section>
         <section className="max-w-2xl">
       <p className="text-lg text-white mb-8">
-        I'm Vedang Kanade, a Full Stack Developer specializing in the MERN stack. With a strong foundation in building robust, responsive, and user-friendly web applications, I excel at designing APIs, developing dynamic frontends, and crafting scalable backend solutions. My expertise spans the entire development lifecycle, but my true strength lies in creating seamless web experiences that power innovative projects. I am passionate about solving complex problems, collaborating with teams to deliver high-quality solutions, and continuously enhancing my skills through hands-on projects and emerging technologies. With over six months of experience and a portfolio featuring an e-commerce platform and a blog application, I am eager to contribute to cutting-edge developments while growing within the industry.
+        I am Vedang Kanade, a Full Stack Developer specializing in the MERN stack. With a strong foundation in building robust, responsive, and user-friendly web applications, I excel at designing APIs, developing dynamic frontends, and crafting scalable backend solutions. My expertise spans the entire development lifecycle, but my true strength lies in creating seamless web experiences that power innovative projects. I am passionate about solving complex problems, collaborating with teams to deliver high-quality solutions, and continuously enhancing my skills through hands-on projects and emerging technologies. With over six months of experience and a portfolio featuring an e-commerce platform and a blog application, I am eager to contribute to cutting-edge developments while growing within the industry.
       </p>
-      <Link
-        href="/Vedang_Kanade_Resume.pdf"
+      <a
+        href="https://drive.google.com/uc?export=download&id=1Hdt7bv4vARGyNT1QE4kff9ndGpgoDm5g"
         download
-        className="inline-block bg-white/10 text-white px-6 py-3 rounded-lg font-medium shadow hover:bg-white/20 transition"
+        className="inline-block text-white px-6 py-3 rounded-lg font-medium shadow hover:bg-white/20 transition"
       >
-        Download Resume
-      </Link>
+        <ConfettiButton>Download Resume</ConfettiButton>
+      </a>
     </section>
+
+    <Separator />
+    <ExtraCards />
+    <Separator />
+    <section  className="w-full flex justify-center items-center flex-row gap-5">
+            <div className="flex flex-wrap gap-4 justify-center">
+              
+              <ProjectsCard />
+            </div>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <ContactNavCard />
+            </div>
+          </section>
+    <Separator />
+
+    <section>
+      <h2 className="text-3xl font-bold text-white mb-4">Achievements</h2>
+    </section>
+    <section className="max-w-2xl">
+      <p className="text-lg text-white mb-2">
+        Participated in AVISHKAR (competition organised by the UNIVERSITY of MUMBAI) and cleared the zonal Round.
+      </p>
+      <p className="text-lg text-white mb-8">
+        Secured 2nd Runner-up for Care-Connect (MERN stack-based NGO-donor platform) at Mini Project Competition, NMITD.
+      </p>
+    </section>
+
+       <Separator />
+    <Github />
     </div>
   )
 }
