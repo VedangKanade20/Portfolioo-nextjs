@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 "use client";
 
 import React, { useState, useEffect, useId } from "react";
