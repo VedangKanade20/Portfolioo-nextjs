@@ -1,6 +1,3 @@
-
-import { CardDemo } from "@/components/CardDemo";
-import { ShineBorder } from "@/components/magicui/shine-border";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import { Spotlight } from "@/components/ui/spotlight";
 import AboutCard from "@/components/AboutCard";
@@ -11,10 +8,10 @@ import SkillsCarousel from "@/components/SkillsCarousel";
 import ProjectsCard from "@/components/ProjectsCardView";
 import SkillsCard from "@/components/SkillsCard";
 import CopyEmailButton from "@/components/CopyEmailButton";
+import projects from "@/components/data/Projects";
 
 
 export default function Home() {
-  
   return (
     <>
     <div className="min-h-screen flex flex-col py-12 gap-12 ">
@@ -44,17 +41,49 @@ export default function Home() {
       </section>
       <Separator className="my-8 bg-muted-foreground/20" />
       {/* Mid Section - Recent work */}
-      <section className=" w-full justify-center ">
-        <h3 className="text-3xl font-bold text-white mb-2">Recent work</h3>
-        <div className="flex flex-row space-x-4 justify-center p-2">
-          <ShineBorder/>
-          <CardDemo />
-          <CardDemo />
+      <section className="w-full justify-center">
+  <h3 className="text-3xl font-bold text-white mb-6 text-center">Recent Work</h3>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center px-4">
+    {projects.slice(0, 3).map((project, index) => (
+      <div
+        key={index}
+        className="border border-purple-600 p-4 rounded-md max-w-md w-full"
+      >
+        <video
+          src={project.video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="rounded-md mb-4 w-full"
+        />
+        <h2 className="text-xl font-semibold mb-1 text-white">{project.title}</h2>
+        <p className="text-sm text-gray-400 mb-2">{project.type}</p>
+        <div className="flex gap-4">
+          <a
+            href={project.url}
+            target="_blank"
+            className="text-purple-400 underline"
+          >
+            Visit
+          </a>
+          {project.source && (
+            <a
+              href={project.source}
+              target="_blank"
+              className="text-purple-400 underline"
+            >
+              GitHub
+            </a>
+          )}
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
-    <Separator className="my-8 bg-muted-foreground/20" />
-
+<Separator className="my-8 bg-muted-foreground/20" />
       {/* 3rd section */}
       <section  className="w-full flex justify-center items-center flex-row gap-5">
         <div className="flex flex-wrap gap-4 justify-center">

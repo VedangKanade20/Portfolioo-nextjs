@@ -11,6 +11,7 @@ import ContactNavCard from '@/components/ContactNavCard';
 const page = () => {
     
   return (
+    <>
     <div className="min-h-screen flex flex-col py-12 gap-12 ">
       <section className="relative w-full  max-w-2xl justify-center ">
         <div className="flex justify-start gap-4 mt-4">
@@ -75,6 +76,8 @@ const page = () => {
        <Separator />
     <Github />
     </div>
+    
+    </>
   )
 }
 
