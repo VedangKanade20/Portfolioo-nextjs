@@ -9,7 +9,7 @@ const SocialLinks = () => {
       label: "GitHub",
       username: "@vedangkanade20",
       description: "Check out my projects!",
-      image: "/vedang-github.jpeg", // GitHub profile pic
+      image: "/vedang-github.jpeg",
     },
     {
       icon: <FaLinkedin size={24} />,
@@ -17,7 +17,7 @@ const SocialLinks = () => {
       label: "LinkedIn",
       username: "Vedang Kanade",
       description: "Let's connect professionally",
-      image: "/vedang-linkedin.jpeg", // You can use a static public image if available
+      image: "/vedang-linkedin.jpeg",
     },
     {
       icon: <FaTwitter size={24} />,
@@ -25,7 +25,7 @@ const SocialLinks = () => {
       label: "Twitter",
       username: "@VedangKanadee",
       description: "Catch my tech updates",
-      image: "/vedang-twitter.jpg", // replace with actual or default profile pic
+      image: "/vedang-twitter.jpg",
     },
     {
       icon: <FaEnvelope size={24} />,
@@ -33,19 +33,19 @@ const SocialLinks = () => {
       label: "Email",
       username: "kanadevedang2003@gmail.com",
       description: "Drop me a message",
-      image: "/email-avatar.jpeg", // default email icon
+      image: "/email-avatar.jpeg",
     },
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mt-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 w-full max-w-4xl mx-auto">
       {socials.map((social) => (
         <a
           key={social.label}
           href={social.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-4 p-4 border border-purple-700 rounded-lg hover:bg-purple-800/20 transition duration-300"
+          className="flex items-center gap-4 p-4 border border-gray-700 rounded-lg hover:bg-emerald-700/20 transition duration-300"
         >
           <img
             src={social.image}
@@ -53,13 +53,13 @@ const SocialLinks = () => {
             className="w-12 h-12 rounded-full object-cover"
           />
           <div>
-            <div className="flex items-center gap-2 text-purple-400 font-semibold text-lg">
-              {social.icon}
-              <span>{social.label}</span>
-            </div>
-            <p className="text-sm text-white">{social.username}</p>
-            <p className="text-sm text-gray-400">{social.description}</p>
-          </div>
+  <div className="flex items-center gap-2 text-emerald-400 font-semibold text-lg">
+    {social.icon}
+    <span>{social.label}</span>
+  </div>
+  <p className="text-sm text-white break-all">{social.username}</p>
+  <p className="text-sm text-gray-400">{social.description}</p>
+</div>
         </a>
       ))}
     </div>

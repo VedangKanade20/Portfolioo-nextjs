@@ -39,9 +39,9 @@ type SkillProps = {
 };
 
 const Skill: React.FC<SkillProps> = ({ icon, label }) => (
-  <div className="flex flex-col items-center text-center w-20 justify-center">
-    <div className="text-4xl justify-center">{icon}</div>
-    <span className="mt-2 text-sm">{label}</span>
+ <div className="flex flex-col items-center text-center w-20 sm:w-24 md:w-28">
+    <div className="text-3xl sm:text-4xl md:text-5xl">{icon}</div>
+    <span className="mt-2 text-xs sm:text-sm md:text-base">{label}</span>
   </div>
 );
 
@@ -49,16 +49,16 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({
   title,
   children,
 }) => (
-  <div className="mb-10 text-center justify-center">
-    <h2 className="text-xl font-semibold mb-6 text-purple-400">{title}</h2>
-    <div className="flex flex-wrap justify-center gap-6">{children}</div>
+ <div className="mb-10 text-center">
+    <h2 className="text-lg sm:text-xl font-semibold mb-6 text-purple-400">{title}</h2>
+    <div className="flex flex-wrap justify-center gap-4 sm:gap-6">{children}</div>
   </div>
 );
 
 const Techstack: React.FC = () => {
   return (
-    <div className="w-full py-10 flex flex-col items-center px-4 justify-center">
-      <h1 className="text-3xl font-bold pb-8 text-center">
+    <div className="w-full py-10 flex flex-col items-center px-4 sm:px-8 md:px-16">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold pb-8 text-center">
         My <span className="text-purple-500">Tech Stack</span>
       </h1>
 

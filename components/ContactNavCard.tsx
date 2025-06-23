@@ -20,7 +20,7 @@ export default function ContactNavCard() {
 
       {/* Description */}
       <p className="text-gray-400 text-sm mb-4">
-        Want to connect or collaborate? Reach out to me directly through my contact page.
+        Want to connect or collaborate? Reach out to me through my contact page.
       </p>
 
       {/* CTA */}

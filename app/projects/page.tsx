@@ -8,23 +8,27 @@ export default function ProjectsPage() {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {projects.map((project, index) => (
-  <div key={index} className="border border-purple-600 p-4 rounded-md">
+       {projects.map((project, index) => (
+  <div
+    key={index}
+    className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-purple-800/30 transition-shadow duration-300"
+  >
     <video
       src={project.video}
       autoPlay
       loop
       muted
       playsInline
-      className="rounded-md mb-4 w-full"
+      className="rounded-lg mb-4 w-full"
     />
-    <h2 className="text-xl font-semibold mb-1">{project.title}</h2>
-    <p className="text-sm text-gray-400 mb-2">{project.type}</p>
+    <h2 className="text-xl font-semibold mb-1 text-white">{project.title}</h2>
+    <p className="text-sm text-gray-400 mb-4">{project.type}</p>
     <div className="flex gap-4">
       <a
         href={project.url}
         target="_blank"
-        className="text-purple-400 underline"
+        rel="noopener noreferrer"
+        className="text-purple-400 hover:text-purple-300 underline transition-colors"
       >
         Visit
       </a>
@@ -32,7 +36,8 @@ export default function ProjectsPage() {
         <a
           href={project.source}
           target="_blank"
-          className="text-purple-400 underline"
+          rel="noopener noreferrer"
+          className="text-purple-400 hover:text-purple-300 underline transition-colors"
         >
           GitHub
         </a>
@@ -40,6 +45,7 @@ export default function ProjectsPage() {
     </div>
   </div>
 ))}
+
 
       </div>
     </div>
