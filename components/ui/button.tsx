@@ -41,10 +41,7 @@ function Button({
   size,
   asChild = false,
   ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
-  }) {
+}: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "button"
 
   return (
@@ -57,3 +54,5 @@ function Button({
 }
 
 export { Button, buttonVariants }
+
+export type ButtonProps = React.ComponentProps<typeof Button>;
