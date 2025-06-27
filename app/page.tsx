@@ -85,15 +85,16 @@ export default function Home() {
       <Separator className="my-8 bg-muted-foreground/20" />
 
       {/* About + Contact section */}
-      <section className="w-full flex flex-col lg:flex-row items-center justify-center gap-6">
-        <AboutCard />
-        <ContactNavCard />
-      </section>
+      <section className="w-full flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-6">
+  <AboutCard />
+  <ContactNavCard />
+</section>
+
 
       <Separator className="my-8 bg-muted-foreground/20" />
 
       {/* Projects + Skills card */}
-      <section className="w-full flex flex-col lg:flex-row items-center justify-center gap-6">
+      <section className="w-full flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-6">
         <ProjectsCard />
         <SkillsCard />
       </section>
