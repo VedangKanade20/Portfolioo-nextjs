@@ -36,7 +36,7 @@ const page = () => {
           I am Vedang Kanade, a Full Stack Developer specializing in the MERN stack. With a strong foundation in building robust, responsive, and user-friendly web applications, I excel at designing APIs, developing dynamic frontends, and crafting scalable backend solutions. My expertise spans the entire development lifecycle, but my true strength lies in creating seamless web experiences that power innovative projects. I am passionate about solving complex problems, collaborating with teams to deliver high-quality solutions, and continuously enhancing my skills through hands-on projects and emerging technologies. With over six months of experience and a portfolio featuring an e-commerce platform and a blog application, I am eager to contribute to cutting-edge developments while growing within the industry.
         </p>
         <a
-          href="https://drive.google.com/uc?export=download&id=1Hdt7bv4vARGyNT1QE4kff9ndGpgoDm5g"
+          href="https://drive.google.com/file/d/1R1mpqsU_IZcjl5bwxG9l-ELUw3JCDJ9X/view?usp=sharing"
           download
           className="inline-block text-white"
         >
