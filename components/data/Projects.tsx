@@ -3,7 +3,7 @@ const projects = [
     title: "Crew Canvas",
     type: "Team Collaboration Tool",
     video: "/crewcanvasvideo.mp4",
-    url: "https://crew-canvas-client.vercel.app/",
+    url: "https://crew-canvas-own-client.vercel.app/",
     source: "https://github.com/VedangKanade20/CrewCanvas", // optional
   },
   {
