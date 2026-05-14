@@ -33,10 +33,25 @@ const page = () => {
       <section className="max-w-3xl mx-auto text-left">
         <h2 className="text-3xl font-bold text-white mb-4">About Me</h2>
         <p className="text-lg text-white mb-8">
-          I am Vedang Kanade, a Full Stack Developer specializing in the MERN stack. With a strong foundation in building robust, responsive, and user-friendly web applications, I excel at designing APIs, developing dynamic frontends, and crafting scalable backend solutions. My expertise spans the entire development lifecycle, but my true strength lies in creating seamless web experiences that power innovative projects. I am passionate about solving complex problems, collaborating with teams to deliver high-quality solutions, and continuously enhancing my skills through hands-on projects and emerging technologies. With over six months of experience and a portfolio featuring an e-commerce platform and a blog application, I am eager to contribute to cutting-edge developments while growing within the industry.
+          I’m Vedang Kanade, a Full Stack Developer specializing in the MERN
+          stack, focused on building scalable, responsive, and user-centric web
+          applications. I enjoy transforming ideas into seamless digital
+          experiences through dynamic frontend interfaces, efficient backend
+          systems, and well-structured APIs. My expertise spans across React.js,
+          Next.js, Node.js, Express.js, MongoDB, PostgreSQL, and modern
+          development workflows including Docker, AWS, and CI/CD. I’ve developed
+          and deployed multiple full-stack projects ranging from collaboration
+          platforms to real-time communication and management systems, with a
+          strong emphasis on performance optimization, scalability, and clean
+          architecture. Passionate about problem-solving and continuous
+          learning, I actively explore emerging technologies, contribute to
+          innovative projects, and enjoy collaborating with teams to create
+          impactful software solutions. As a final-year MCA student, I’m eager
+          to grow as a developer while building meaningful products that deliver
+          real-world value.
         </p>
         <a
-          href="https://drive.google.com/file/d/1R1mpqsU_IZcjl5bwxG9l-ELUw3JCDJ9X/view?usp=sharing"
+          href="https://drive.google.com/file/d/15ADuHgG74NxsYoKv8MHNQVE9SR87Tdri/view?usp=sharing"
           download
           className="inline-block text-white"
         >
@@ -63,10 +78,12 @@ const page = () => {
       <section className="max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold text-white mb-4">Achievements</h2>
         <p className="text-lg text-white mb-2">
-          Participated in AVISHKAR (competition organised by the UNIVERSITY of MUMBAI) and cleared the zonal Round.
+          Participated in AVISHKAR (competition organised by the UNIVERSITY of
+          MUMBAI) and cleared the zonal Round.
         </p>
         <p className="text-lg text-white mb-8">
-          Secured 2nd Runner-up for Care-Connect (MERN stack-based NGO-donor platform) at Mini Project Competition, NMITD.
+          Secured 2nd Runner-up for Care-Connect (MERN stack-based NGO-donor
+          platform) at Mini Project Competition, NMITD.
         </p>
       </section>
 

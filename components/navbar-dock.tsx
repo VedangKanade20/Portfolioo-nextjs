@@ -8,6 +8,7 @@ import { IoMdPerson } from "react-icons/io";
 import { GoCode } from "react-icons/go";
 import { MdOutlineEmail } from "react-icons/md";
 import { BiPencil } from "react-icons/bi";
+import { MdWorkHistory } from "react-icons/md";
 import Link from "next/link";
 
 export default function NavbarDock() {
@@ -30,6 +31,11 @@ export default function NavbarDock() {
           </Link>
         </DockIcon>
         <DockIcon>
+          <Link href="/experience">
+            <MdWorkHistory size={24} />
+          </Link>
+        </DockIcon>
+        <DockIcon>
           <Link href="/contact">
             <MdOutlineEmail size={24} />
           </Link>
@@ -40,17 +46,29 @@ export default function NavbarDock() {
           </Link>
         </DockIcon>
         <DockIcon>
-          <Link href="https://github.com/vedangkanade20" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://github.com/vedangkanade20"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaGithub size={24} />
           </Link>
         </DockIcon>
         <DockIcon>
-          <Link href="https://www.linkedin.com/in/vedang-kanade-598a05276/" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://www.linkedin.com/in/vedang-kanade-598a05276/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaLinkedin size={24} />
           </Link>
         </DockIcon>
         <DockIcon>
-          <Link href="https://x.com/VedangKanade" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://x.com/VedangKanade"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaTwitter size={24} />
           </Link>
         </DockIcon>

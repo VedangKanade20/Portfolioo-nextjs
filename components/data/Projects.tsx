@@ -24,7 +24,7 @@ const projects = [
     title: "Chat Buzz",
     type: "Real-time Chat App",
     video: "/chatbuzzvideo.mp4",
-    url: "https://chat-buzz-client.vercel.app/",
+    url: "https://chat-buzz-beige.vercel.app/",
     source: "https://github.com/VedangKanade20/Chat-Buzz",
   },
   {
