@@ -23,7 +23,7 @@ export default function ExtraCards() {
       {/* Experience */}
       {/* <div className="relative bg-[#1a1a1a] rounded-xl p-4 w-full max-w-sm border border-[#2a2a2a] shadow-md">
         <div className="flex items-center gap-2 mb-2">
-          <Briefcase className="w-5 h-5 text-white" />
+          < className="w-5 h-5 text-white" />
           <h3 className="font-bold text-white text-lg">Experience</h3>
         </div>
         <p className="text-gray-300 text-sm">
