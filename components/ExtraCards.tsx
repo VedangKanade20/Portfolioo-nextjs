@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, Heart } from "lucide-react";
+import { GraduationCap, Heart } from "lucide-react";
 
 export default function ExtraCards() {
   return (
