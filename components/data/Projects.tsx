@@ -4,7 +4,7 @@ const projects = [
     type: "Team Collaboration Tool",
     video: "/crewcanvasvideo.mp4",
     url: "https://crew-canvas-own-client.vercel.app/ ",
-    source: "https://github.com/VedangKanade20/CrewCanvas", // optional
+    source: "https://github.com/VedangKanade20/crew-canvas-own-client", // optional
   },
   {
     title: "Care Connect",
