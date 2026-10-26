@@ -10,69 +10,83 @@ import { MdOutlineEmail } from "react-icons/md";
 import { BiPencil } from "react-icons/bi";
 import { MdWorkHistory } from "react-icons/md";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NavbarDock() {
+  const pathname = usePathname();
+
+  const navItems = [
+    { href: "/", icon: <IoIosHome size={22} />, label: "Home" },
+    { href: "/about", icon: <IoMdPerson size={22} />, label: "About" },
+    { href: "/skills", icon: <GoCode size={22} />, label: "Skills" },
+    { href: "/experience", icon: <MdWorkHistory size={22} />, label: "Work" },
+    { href: "/projects", icon: <BiPencil size={22} />, label: "Projects" },
+    { href: "/contact", icon: <MdOutlineEmail size={22} />, label: "Contact" },
+  ];
+
+  const socialItems = [
+    {
+      href: "https://github.com/vedangkanade20",
+      icon: <FaGithub size={20} />,
+      label: "GitHub",
+    },
+    {
+      href: "https://www.linkedin.com/in/vedang-kanade-598a05276/",
+      icon: <FaLinkedin size={20} />,
+      label: "LinkedIn",
+    },
+    {
+      href: "https://x.com/VedangKanade",
+      icon: <FaTwitter size={20} />,
+      label: "Twitter",
+    },
+  ];
+
   return (
-    <div className="fixed bottom-4 left-0 right-0 flex justify-center z-50 border-violet-900">
-      <Dock>
-        <DockIcon>
-          <Link href="/">
-            <IoIosHome size={24} />
-          </Link>
-        </DockIcon>
-        <DockIcon>
-          <Link href="/about">
-            <IoMdPerson size={24} />
-          </Link>
-        </DockIcon>
-        <DockIcon>
-          <Link href="/skills">
-            <GoCode size={24} />
-          </Link>
-        </DockIcon>
-        <DockIcon>
-          <Link href="/experience">
-            <MdWorkHistory size={24} />
-          </Link>
-        </DockIcon>
-        <DockIcon>
-          <Link href="/contact">
-            <MdOutlineEmail size={24} />
-          </Link>
-        </DockIcon>
-        <DockIcon>
-          <Link href="/projects">
-            <BiPencil size={24} />
-          </Link>
-        </DockIcon>
-        <DockIcon>
-          <Link
-            href="https://github.com/vedangkanade20"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub size={24} />
-          </Link>
-        </DockIcon>
-        <DockIcon>
-          <Link
-            href="https://www.linkedin.com/in/vedang-kanade-598a05276/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin size={24} />
-          </Link>
-        </DockIcon>
-        <DockIcon>
-          <Link
-            href="https://x.com/VedangKanade"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTwitter size={24} />
-          </Link>
-        </DockIcon>
-      </Dock>
-    </div>
+    <nav
+      aria-label="Bottom Navigation"
+      className="fixed bottom-5 left-0 right-0 flex justify-center z-50 pointer-events-none"
+    >
+      <div className="pointer-events-auto">
+        <Dock className="border border-white/10 bg-[#0a0a0c]/85 shadow-[0_10px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(63,127,208,0.15)] backdrop-blur-xl">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <DockIcon key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`flex h-full w-full items-center justify-center rounded-xl transition-all duration-200 ${
+                    isActive
+                      ? "text-[#8fc4ff] bg-[#3f7fd0]/20 shadow-[0_0_12px_rgba(143,196,255,0.3)]"
+                      : "text-zinc-400 hover:text-white hover:bg-white/5"
+                  }`}
+                  aria-label={item.label}
+                  title={item.label}
+                >
+                  {item.icon}
+                </Link>
+              </DockIcon>
+            );
+          })}
+
+          <div className="h-6 w-px bg-white/10 mx-1 self-center" />
+
+          {socialItems.map((item) => (
+            <DockIcon key={item.href}>
+              <Link
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-full w-full items-center justify-center text-zinc-400 hover:text-[#8fc4ff] transition-colors"
+                aria-label={item.label}
+                title={item.label}
+              >
+                {item.icon}
+              </Link>
+            </DockIcon>
+          ))}
+        </Dock>
+      </div>
+    </nav>
   );
 }

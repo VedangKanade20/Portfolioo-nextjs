@@ -1,15 +1,17 @@
+import SkillsEditorialSection from "@/components/skills/SkillsEditorialSection";
+import React from "react";
+import type { Metadata } from "next";
 
-import Techstack from '@/components/TechStack'
-import React from 'react'
+export const metadata: Metadata = {
+  title: "Skills & Technical Stack | Vedang Kanade",
+  description:
+    "Segregated architectural skills across Frontend, Backend (Java Full Stack, JS Full Stack, Python, C# ASP.NET), Databases, Deployment, and Development Tools.",
+};
 
-const page = () => {
+export default function SkillsPage() {
   return (
-   <div className="min-h-screen flex flex-col py-12 gap-12 items-center px-4 sm:px-6 lg:px-12">
-      <section className="w-full max-w-7xl">
-        <Techstack />
-      </section>
+    <div className="min-h-screen py-8 sm:py-12">
+      <SkillsEditorialSection showHeader={true} defaultFilter="all" />
     </div>
-  )
+  );
 }
-
-export default page

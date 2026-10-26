@@ -1,50 +1,37 @@
 import { GraduationCap, Heart } from "lucide-react";
 
-
-
 export default function ExtraCards() {
   return (
-    <div className="flex flex-wrap gap-6 justify-center">
+    <div className="flex flex-wrap gap-6 justify-center max-w-4xl mx-auto">
       {/* Education & Qualification */}
-      <div className="relative bg-[#1a1a1a] rounded-xl p-4 w-full max-w-sm border border-[#2a2a2a] shadow-md">
-        <div className="flex items-center gap-2 mb-2">
-          <GraduationCap className="w-5 h-5 text-white" />
-          <h3 className="font-bold text-white text-lg">
+      <div className="group relative bg-[#070709]/90 rounded-2xl p-6 w-full max-w-md border border-white/10 shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-[#3f7fd0]/50 hover:shadow-[0_12px_35px_rgba(63,127,208,0.12)]">
+        <div className="flex items-center gap-2.5 mb-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#3f7fd0]/10 border border-[#3f7fd0]/30 text-[#8fc4ff]">
+            <GraduationCap className="w-4 h-4" />
+          </div>
+          <h3 className="font-bold text-white text-lg font-serif">
             Education & Qualification
           </h3>
         </div>
-        <p className="text-gray-300 text-sm">
-          I am currently in my 2nd and final year of Masters in Computer
-          Applications. I completed my B.Sc in IT from Guru Nanak Khalsa College
-          with an average of 8.4 CGPA and scored 8.9 in my last semester.
+        <p className="text-zinc-300 text-sm leading-relaxed">
+          Final-year Master of Computer Applications (MCA) candidate. Completed B.Sc in Information Technology from Guru Nanak Khalsa College with an average of 8.4 CGPA (8.9 CGPA in final semester).
         </p>
       </div>
 
-      {/* Experience */}
-      {/* <div className="relative bg-[#1a1a1a] rounded-xl p-4 w-full max-w-sm border border-[#2a2a2a] shadow-md">
-        <div className="flex items-center gap-2 mb-2">
-          < className="w-5 h-5 text-white" />
-          <h3 className="font-bold text-white text-lg">Experience</h3>
-        </div>
-        <p className="text-gray-300 text-sm">
-          <strong>RST Forum</strong><br />
-          Full Stack JavaScript Web Development trainee.<br />
-          Trained in MERN stack, designed and developed visually appealing web apps,
-          and collaborated with seniors to learn best practices for building full-fledged applications.
-        </p>
-      </div> */}
-
       {/* Interests & Hobbies */}
-      <div className="relative bg-[#1a1a1a] rounded-xl p-4 w-full max-w-sm border border-[#2a2a2a] shadow-md">
-        <div className="flex items-center gap-2 mb-2">
-          <Heart className="w-5 h-5 text-white" />
-          <h3 className="font-bold text-white text-lg">Interests & Hobbies</h3>
+      <div className="group relative bg-[#070709]/90 rounded-2xl p-6 w-full max-w-md border border-white/10 shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-[#3f7fd0]/50 hover:shadow-[0_12px_35px_rgba(63,127,208,0.12)]">
+        <div className="flex items-center gap-2.5 mb-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#3f7fd0]/10 border border-[#3f7fd0]/30 text-[#8fc4ff]">
+            <Heart className="w-4 h-4" />
+          </div>
+          <h3 className="font-bold text-white text-lg font-serif">
+            Interests & Pursuit
+          </h3>
         </div>
-        <p className="text-gray-300 text-sm">
-          <strong>Interests:</strong> Web Development, DevOps, Gen AI.
+        <p className="text-zinc-300 text-sm leading-relaxed">
+          <span className="text-[#8fc4ff] font-semibold">Technical:</span> Distributed Systems, Microservices Architecture, Cloud DevOps & Generative AI.
           <br />
-          <strong>Hobbies:</strong> Outdoor sports like cricket, football, and
-          Gym.
+          <span className="text-[#8fc4ff] font-semibold">Active:</span> Football, Cricket, and Fitness Training.
         </p>
       </div>
     </div>

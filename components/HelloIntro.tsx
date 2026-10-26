@@ -23,7 +23,11 @@ const GREETINGS = [
 // feels like it belongs to the same hand.
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-export default function HelloIntro() {
+interface HelloIntroProps {
+  onComplete?: () => void;
+}
+
+export default function HelloIntro({ onComplete }: HelloIntroProps = {}) {
   const [index, setIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [inverted, setInverted] = useState(false);
@@ -71,7 +75,10 @@ export default function HelloIntro() {
 
   return (
     <AnimatePresence
-      onExitComplete={() => sessionStorage.setItem("intro-shown", "true")}
+      onExitComplete={() => {
+        sessionStorage.setItem("intro-shown", "true");
+        onComplete?.();
+      }}
     >
       {!leaving && (
         <motion.div

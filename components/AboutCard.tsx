@@ -1,35 +1,32 @@
 import Link from "next/link";
-import { UserIcon } from "lucide-react"; // swap icon for each card if needed
+import { UserIcon } from "lucide-react";
 import { BorderBeam } from "@/components/magicui/border-beam";
-
 import { ShootingStars } from "./ui/shooting-stars";
 import { StarsBackground } from "./ui/stars-background";
 
 export default function AboutCard() {
   return (
-   <div className="relative bg-[#1a1a1a] rounded-xl p-4 w-full sm:max-w-sm md:max-w-md border border-[#2a2a2a] shadow-md">
-    <StarsBackground className="pointer-events-none"/>
-    <ShootingStars className="pointer-events-none"/>
-      <div className="absolute -top-4 left-4 w-10 h-10 flex items-center justify-center bg-[#1a1a1a] border border-[#333] rounded-full">
-        <UserIcon size={18} className="text-white" />
+    <div className="relative bg-[#070709]/90 rounded-2xl p-6 w-full sm:max-w-sm md:max-w-md border border-white/10 shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-[#3f7fd0]/50 hover:shadow-[0_12px_35px_rgba(63,127,208,0.12)]">
+      <StarsBackground className="pointer-events-none" />
+      <ShootingStars className="pointer-events-none" />
+
+      <div className="absolute -top-4 left-6 w-9 h-9 flex items-center justify-center bg-[#070709] border border-[#3f7fd0]/40 rounded-full text-[#8fc4ff] shadow-md">
+        <UserIcon size={16} />
       </div>
 
-      {/* Title */}
-      <h3 className="text-white text-lg font-semibold mt-6 mb-1 border-b border-[#333] w-fit pr-2">
+      <h3 className="text-white text-xl font-bold font-serif mt-4 mb-1">
         About Me
       </h3>
 
-      {/* Description */}
-      <p className="text-gray-400 text-sm mb-4">
-        Learn about my journey, skills, and experiences in the world of development.
+      <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+        Learn about my background, core engineering philosophies, and software development journey.
       </p>
 
-      {/* CTA */}
       <Link
-         href="/about"
-    className="block w-full text-center text-sm px-4 py-2 rounded-md border border-[#444] text-white mt-2 transition-all duration-200 ease-in-out hover:bg-[#2e2e2e] hover:border-[#666] hover:scale-[1.02] active:scale-95"
+        href="/about"
+        className="block w-full text-center text-xs font-mono px-4 py-2.5 rounded-lg border border-white/10 text-white bg-white/[0.02] hover:bg-[#3f7fd0]/20 hover:border-[#8fc4ff]/50 hover:text-[#8fc4ff] transition-all duration-200"
       >
-        See More
+        View Profile →
       </Link>
       <BorderBeam duration={8} size={100} className="pointer-events-none" />
     </div>
