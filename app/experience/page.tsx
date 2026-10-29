@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import type { Metadata } from "next";
+import { FaShieldAlt, FaCheckCircle } from "react-icons/fa";
 
 export interface ExperienceItem {
   role: string;
@@ -13,6 +13,7 @@ export interface ExperienceItem {
   summary: string;
   highlights: string[];
   technologies: string[];
+  metrics?: string;
   seeAlso: string[];
 }
 
@@ -23,16 +24,18 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "Ardra Innovations",
     period: "Jan 2026 - May 2026",
     location: "Mumbai, India",
-    classification: "(professional role / full-stack engineering)",
+    classification: "(professional role / full-stack engineering & business systems)",
+    metrics: "25% API Latency Reduction",
     summary:
-      "Engineered end-to-end MERN stack platforms including Team Sync and Inventory management systems, architecting resilient backend logic and high-performance client state.",
+      "Engineered end-to-end MERN stack platforms including Team Sync and multi-tenant Inventory management systems, architecting resilient backend services, state synchronization, and scalable cloud deployments.",
     highlights: [
-      "Built and deployed full-stack applications using MERN stack (MongoDB, Express.js, React.js, Node.js), including Team Sync and Inventory systems.",
-      "Designed and optimized REST APIs with Express.js, improving average endpoint response time by 25% via query tuning and compound indexing.",
-      "Implemented scalable backend services and handled cloud deployment, reducing redundant API roundtrips and optimizing system throughput.",
+      "Built and deployed scalable full-stack applications using MongoDB, Express.js, React.js, and Node.js for real-time inventory and team synchronization.",
+      "Designed and optimized REST APIs with Express.js, reducing average endpoint response time by 25% via query execution plan profiling and compound indexing.",
+      "Implemented resilient error-handling middleware, payload validation schemas, and automated database backups to prevent data corruption under concurrent load.",
+      "Handled production deployment pipelines and environment configuration, reducing redundant API roundtrips and improving system efficiency.",
     ],
-    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs", "Git"],
-    seeAlso: ["Inventory Architecture", "Query Profiling", "Team Sync Platform"],
+    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs", "Git", "Cloud Deployment"],
+    seeAlso: ["Inventory Architecture", "Query Profiling", "Team Sync Platform", "Compound Indexing"],
   },
   {
     role: "Full Stack Developer Intern",
@@ -40,16 +43,18 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "DataCircles Technologies",
     period: "Oct 2025 - Jan 2026",
     location: "Remote / Hybrid",
-    classification: "(internship / enterprise CRM & backend systems)",
+    classification: "(internship / enterprise CRM & backend architectures)",
+    metrics: "30% Query Optimization",
     summary:
-      "Developed high-throughput workflow engines for CRM automation, client lifecycle management, and relational database migrations with fine-grained access control.",
+      "Developed high-throughput workflow engines for CRM automation, client lifecycle management, and relational database migrations with fine-grained role-based access control.",
     highlights: [
-      "Developed scalable systems using Node.js, Express.js, PostgreSQL, and MongoDB for CRM workflows & client management.",
-      "Built RBAC-based REST APIs and optimized database queries, improving backend efficiency by 30%.",
-      "Integrated AWS cloud services, Redis in-memory caching strategies to enhance performance and reduce p95 latency.",
+      "Architected backend micro-services using Node.js, Express.js, PostgreSQL, and MongoDB to streamline client management and complex CRM sales workflows.",
+      "Engineered granular Role-Based Access Control (RBAC) security across REST endpoints, ensuring strict data governance across managerial and staff roles.",
+      "Optimized relational database queries and normalized schemas in PostgreSQL, improving backend query throughput by 30%.",
+      "Integrated AWS cloud services and Redis in-memory caching strategies to cache recurring dashboard queries, drastically slashing p95 latency.",
     ],
-    technologies: ["Node.js", "PostgreSQL", "Express.js", "Redis", "AWS", "MongoDB"],
-    seeAlso: ["Role-Based Access Control", "Redis Caching", "PostgreSQL Schemas"],
+    technologies: ["Node.js", "PostgreSQL", "Express.js", "Redis", "AWS", "MongoDB", "RBAC"],
+    seeAlso: ["Role-Based Access Control", "Redis In-Memory Caching", "PostgreSQL Normalization", "AWS S3"],
   },
   {
     role: "Backend Web Developer Intern",
@@ -58,15 +63,17 @@ const EXPERIENCES: ExperienceItem[] = [
     period: "Dec 2024 - Apr 2025",
     location: "Remote",
     classification: "(contract / API development & schema optimization)",
+    metrics: "Production API Pipelines",
     summary:
-      "Engineered production-grade REST services with FastAPI and Express.js, managing complex data validation pipelines and relational schema indexing.",
+      "Engineered production-grade asynchronous REST services with FastAPI and Express.js, managing complex data validation pipelines, relational schema indexing, and third-party integrations.",
     highlights: [
-      "Developed and deployed REST APIs using FastAPI and Express.js, handling mission-critical application logic and high-volume data flow.",
-      "Optimized database schemas across PostgreSQL and MongoDB, improving complex query efficiency and transaction integrity.",
-      "Implemented JWT authentication, input validation, and business logic for production-ready client applications.",
+      "Developed and deployed asynchronous REST APIs using Python FastAPI and Express.js, handling mission-critical business logic and high-volume data flow.",
+      "Designed and tuned database schemas across PostgreSQL and MongoDB, guaranteeing data consistency and enforcing foreign key constraints.",
+      "Implemented secure JWT authentication, Pydantic request/response validation, and business logic for production-ready client applications.",
+      "Containerized micro-services using Docker for deterministic local development and seamless production parity.",
     ],
-    technologies: ["FastAPI", "Python", "PostgreSQL", "Express.js", "MongoDB", "Docker"],
-    seeAlso: ["AsyncIO", "Pydantic Schemas", "Schema Normalization"],
+    technologies: ["FastAPI", "Python", "PostgreSQL", "Express.js", "MongoDB", "Docker", "JWT Auth"],
+    seeAlso: ["AsyncIO", "Pydantic Schemas", "Schema Normalization", "Docker Containers"],
   },
   {
     role: "Junior Full Stack Trainee",
@@ -74,15 +81,17 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "RSTForum",
     period: "Apr 2024 - Sept 2024",
     location: "Mumbai, India",
-    classification: "(training program / software development fundamentals)",
+    classification: "(training program / software engineering foundations)",
+    metrics: "Full MERN Mastery",
     summary:
-      "Comprehensive training in modern software engineering principles, component lifecycle architecture, REST conventions, and deployment pipelines.",
+      "Rigorous professional training in software engineering best practices, component lifecycle architecture, REST conventions, and automated deployment pipelines.",
     highlights: [
-      "Built responsive web applications using React.js, Node.js, and MongoDB, following clean code architecture and component best practices.",
-      "Gained hands-on experience in API integration, dynamic state management, and modern CI/CD deployment workflows.",
+      "Built responsive, accessible web applications using React.js, Node.js, and MongoDB, following clean code architecture and component best practices.",
+      "Collaborated with senior developers to conduct code reviews, implement unit testing, and master modern Git branching workflows.",
+      "Gained hands-on experience in API integration, dynamic state management with Context/Redux, and modern CI/CD deployment workflows.",
     ],
-    technologies: ["React.js", "Node.js", "MongoDB", "JavaScript", "HTML5/CSS3"],
-    seeAlso: ["Component Lifecycle", "REST Standards", "Git Workflows"],
+    technologies: ["React.js", "Node.js", "MongoDB", "JavaScript", "HTML5/CSS3", "Git Workflows"],
+    seeAlso: ["Component Lifecycle", "REST Standards", "Git Workflows", "Clean Architecture"],
   },
 ];
 
@@ -95,38 +104,72 @@ export default function ExperiencePage() {
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-[#8fc4ff]" />
             <span className="font-mono text-xs uppercase tracking-widest text-[#8fc4ff]">
-              Chronology of Engagements
+              Professional Experience & Delivery
             </span>
           </div>
           <div className="flex items-baseline gap-3 mt-2">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-serif">
-              experience
+              work
             </h1>
             <span className="font-mono text-xs sm:text-sm text-[#8fc4ff]/80">
-              [ɪkˈspɪə.ri.əns]
+              [wɜːk]
             </span>
           </div>
           <p className="mt-1 text-xs font-mono italic text-zinc-400">
-            (noun / professional engineering engagements & production delivery)
+            (noun / career timeline, enterprise software systems & technical achievements)
           </p>
           <p className="mt-3 text-sm sm:text-base text-zinc-300 max-w-2xl font-sans leading-relaxed">
-            A track record of shipping full-stack systems, optimizing backend performance, and delivering robust software solutions across industry roles.
+            A track record of engineering full-stack platforms, optimizing backend latency, building secure APIs, and gaining hands-on exposure to high-reliability enterprise systems.
           </p>
         </div>
 
         <div className="font-mono text-xs text-zinc-500">
-          {EXPERIENCES.length} ENGAGEMENTS RECORDED
+          {EXPERIENCES.length} FORMAL ENGAGEMENTS
+        </div>
+      </div>
+
+      {/* Enterprise & Fintech Systems Focus Banner */}
+      <div className="mb-12 rounded-2xl border border-[#3f7fd0]/40 bg-gradient-to-br from-[#0c1a30]/80 via-[#070709] to-[#050506] p-6 sm:p-8 backdrop-blur-xl shadow-[0_10px_35px_rgba(63,127,208,0.15)]">
+        <div className="flex items-center gap-3 text-[#8fc4ff] mb-3">
+          <FaShieldAlt size={20} />
+          <span className="font-mono text-xs uppercase tracking-widest font-semibold">
+            Enterprise & Fintech Domain Exposure
+          </span>
+        </div>
+        <h2 className="text-xl sm:text-2xl font-bold text-white font-serif mb-2">
+          Banking-Grade Workflows & Scalable Backend Systems
+        </h2>
+        <p className="text-sm sm:text-[15px] leading-relaxed text-zinc-300 max-w-4xl font-sans">
+          Actively building and learning enterprise backend paradigms: understanding multi-party transaction settlement, financial reconciliation pipelines (e.g. ATM multi-way recon), secure file downloader workflows, cryptographic integrity (BouncyCastle), and hardened REST APIs built on Java Spring Boot and Node.js.
+        </p>
+
+        <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs pt-4 border-t border-white/[0.08]">
+          <div className="flex items-center gap-2 text-zinc-300">
+            <FaCheckCircle className="text-[#8fc4ff]" />
+            <span>ACID Transactions</span>
+          </div>
+          <div className="flex items-center gap-2 text-zinc-300">
+            <FaCheckCircle className="text-[#8fc4ff]" />
+            <span>RBAC Authorization</span>
+          </div>
+          <div className="flex items-center gap-2 text-zinc-300">
+            <FaCheckCircle className="text-[#8fc4ff]" />
+            <span>Query Plan Profiling</span>
+          </div>
+          <div className="flex items-center gap-2 text-zinc-300">
+            <FaCheckCircle className="text-[#8fc4ff]" />
+            <span>Redis In-Memory Cache</span>
+          </div>
         </div>
       </div>
 
       {/* Experience Timeline */}
       <div className="space-y-8">
         {EXPERIENCES.map((exp, index) => {
-          const indexFormatted = String(index + 1).padStart(2, "0");
           return (
             <article
               key={index}
-              className="group relative rounded-2xl border border-white/10 bg-[#070709]/90 p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#3f7fd0]/60 hover:shadow-[0_12px_40px_rgba(63,127,208,0.12)]"
+              className="group relative rounded-2xl border border-white/10 bg-[#070709]/90 p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#3f7fd0]/60 hover:shadow-[0_12px_40px_rgba(63,127,208,0.14)]"
             >
               {/* Subtle top light-blue accent */}
               <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#8fc4ff]/30 to-transparent group-hover:via-[#8fc4ff] transition-all duration-500" />
@@ -151,13 +194,20 @@ export default function ExperiencePage() {
                 </div>
               </div>
 
-              {/* Classification Tag */}
-              <p className="mt-2 text-xs font-mono italic text-zinc-400">
-                {exp.classification} — <span className="text-zinc-500">{exp.location}</span>
-              </p>
+              {/* Classification Tag & Metrics */}
+              <div className="flex flex-wrap items-center justify-between gap-2 mt-2">
+                <p className="text-xs font-mono italic text-zinc-400">
+                  {exp.classification} — <span className="text-zinc-500">{exp.location}</span>
+                </p>
+                {exp.metrics && (
+                  <span className="rounded-full bg-[#3f7fd0]/20 border border-[#8fc4ff]/40 px-3 py-0.5 font-mono text-[11px] text-[#8fc4ff] font-semibold">
+                    ★ {exp.metrics}
+                  </span>
+                )}
+              </div>
 
               {/* Narrative Summary */}
-              <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-200">
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-200 font-sans">
                 {exp.summary}
               </p>
 
@@ -168,7 +218,7 @@ export default function ExperiencePage() {
                     <span className="font-mono text-xs text-[#8fc4ff] mt-0.5 select-none">
                       →
                     </span>
-                    <span className="leading-relaxed">{highlight}</span>
+                    <span className="leading-relaxed font-sans">{highlight}</span>
                   </div>
                 ))}
               </div>

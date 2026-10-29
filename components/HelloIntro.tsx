@@ -1,77 +1,121 @@
-
-
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-// Cycle of greetings — each has its own font-family override for scripts
-// that need a different typeface (Devanagari, Cyrillic, CJK) to render correctly.
-const GREETINGS = [
-  { text: "Vedang says hi", font: "" },
-  { text: "वेदांग कहता है नमस्ते", font: "font-devanagari" },
-  { text: "Vedang dice hola", font: "" },
-  { text: "Vedang dit salut", font: "" },
-  { text: "Vedang sagt hallo", font: "" },
-  { text: "Веданг говорит привет", font: "font-cyrillic" },
-  { text: "维丹说你好", font: "font-cjk" },
-  { text: "ヴェダンがこんにちはと言っています", font: "font-cjk text-2xl" },
-];
-
-// Easing curve used everywhere in this component — a fast-out, slow-settle
-// curve (close to Apple/Linear's default), so every motion in the sequence
-// feels like it belongs to the same hand.
-const EASE = [0.16, 1, 0.3, 1] as const;
+import { useEffect, useState, useMemo } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface HelloIntroProps {
   onComplete?: () => void;
 }
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export default function HelloIntro({ onComplete }: HelloIntroProps = {}) {
   const [index, setIndex] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [inverted, setInverted] = useState(false);
   const [leaving, setLeaving] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [timeString, setTimeString] = useState("");
 
-  // Self-gated: only show once per browser session. Runs once on mount,
-  // before anything else, so there is no dependency on a parent component.
+  // Determine time-of-day greetings based on client's local hour
+  const greetings = useMemo(() => {
+    const hour = new Date().getHours();
+
+    if (hour >= 5 && hour < 12) {
+      return [
+        { text: "Good morning", font: "", sub: "Welcome to my portfolio" },
+        { text: "सुप्रभात", font: "font-devanagari", sub: "वेदांग का पोर्टफोलियो" },
+        { text: "Buenos días", font: "", sub: "Bienvenido" },
+        { text: "Bonjour", font: "", sub: "Bienvenue" },
+        { text: "Guten Morgen", font: "", sub: "Willkommen" },
+        { text: "Доброе утро", font: "font-cyrillic", sub: "Добро пожаловать" },
+        { text: "早上好", font: "font-cjk", sub: "欢迎来到我的作品集" },
+        { text: "おはようございます", font: "font-cjk", sub: "ポートフォリオへようこそ" },
+      ];
+    } else if (hour >= 12 && hour < 17) {
+      return [
+        { text: "Good afternoon", font: "", sub: "Welcome to my portfolio" },
+        { text: "शुभ दोपहर", font: "font-devanagari", sub: "वेदांग का पोर्टफोलियो" },
+        { text: "Buenas tardes", font: "", sub: "Bienvenido" },
+        { text: "Bon après-midi", font: "", sub: "Bienvenue" },
+        { text: "Guten Tag", font: "", sub: "Willkommen" },
+        { text: "Добрый день", font: "font-cyrillic", sub: "Добро пожаловать" },
+        { text: "下午好", font: "font-cjk", sub: "欢迎来到我的作品集" },
+        { text: "こんにちは", font: "font-cjk", sub: "ポートフォリオへようこそ" },
+      ];
+    } else {
+      return [
+        { text: "Good evening", font: "", sub: "Welcome to my portfolio" },
+        { text: "शुभ संध्या", font: "font-devanagari", sub: "वेदांग का पोर्टफोलियो" },
+        { text: "Buenas noches", font: "", sub: "Bienvenido" },
+        { text: "Bonsoir", font: "", sub: "Bienvenue" },
+        { text: "Guten Abend", font: "", sub: "Willkommen" },
+        { text: "Добрый вечер", font: "font-cyrillic", sub: "Добро пожаловать" },
+        { text: "晚上好", font: "font-cjk", sub: "欢迎来到我的作品集" },
+        { text: "こんばんは", font: "font-cjk", sub: "ポートフォリオへようこそ" },
+      ];
+    }
+  }, []);
+
+  // Self-gated: only show once per browser session
   useEffect(() => {
     const seen = sessionStorage.getItem("intro-shown");
     if (!seen) setVisible(true);
+
+    // Update real-time clock
+    const updateTime = () => {
+      const now = new Date();
+      setTimeString(
+        now.toLocaleTimeString("en-IN", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        })
+      );
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
   }, []);
 
-  // Cycle greetings on a fixed interval, flipping the invert flag each time.
+  // Cycle greetings smoothly
   useEffect(() => {
     if (!visible) return;
     const greetingInterval = setInterval(() => {
-      setIndex((i) => (i + 1) % GREETINGS.length);
-      setInverted((v) => !v);
-    }, 680);
+      setIndex((i) => (i + 1) % greetings.length);
+    }, 650);
     return () => clearInterval(greetingInterval);
-  }, [visible]);
+  }, [visible, greetings.length]);
 
-  // Drive the progress bar independently of the greeting cycle so the two
-  // don't have to land on exactly the same duration to feel synced.
+  // Drive loader progress
   useEffect(() => {
     if (!visible) return;
     const progressInterval = setInterval(() => {
       setProgress((p) => {
-        const next = p + Math.random() * 6 + 2.5;
+        const increment = Math.random() * 8 + 3.5;
+        const next = p + increment;
         if (next >= 100) {
           clearInterval(progressInterval);
-          // Small pause at 100% before the wipe starts, so "READY" registers
-          // instead of the wipe feeling like it cut the loader off early.
-          setTimeout(() => setLeaving(true), 350);
+          setTimeout(() => setLeaving(true), 400);
           return 100;
         }
         return next;
       });
-    }, 260);
+    }, 180);
     return () => clearInterval(progressInterval);
   }, [visible]);
 
   if (!visible) return null;
+
+  // Status subtitle based on progress phase
+  const statusLabel =
+    progress < 35
+      ? "BOOTSTRAPPING CORE RUNTIME"
+      : progress < 70
+      ? "INITIALIZING ARCHITECTURE SERVICES"
+      : progress < 100
+      ? "CONNECTING ASSETS & TELEMETRY"
+      : "SYSTEM READY";
 
   return (
     <AnimatePresence
@@ -82,105 +126,99 @@ export default function HelloIntro({ onComplete }: HelloIntroProps = {}) {
     >
       {!leaving && (
         <motion.div
-          className={
-            "fixed inset-0 z-[100] flex items-center justify-center transition-colors duration-300 " +
-            (inverted ? "bg-[#cfe4ff]" : "bg-[#050506]")
-          }
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-between bg-[#050506] px-6 py-10 select-none overflow-hidden"
           initial={{ scaleY: 1 }}
-          exit={{ scaleY: 0, transition: { duration: 0.9, ease: EASE } }}
+          exit={{
+            scaleY: 0,
+            transition: { duration: 0.85, ease: EASE },
+          }}
           style={{ transformOrigin: "bottom" }}
         >
-          {/* ambient glow — purely decorative, pointer-events disabled so it
-              never interferes with anything rendered after the intro */}
-          <motion.div
-            className="pointer-events-none absolute h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-3xl"
-            animate={{ scale: [1, 1.08, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-          />
+          {/* Ambient Light Blue Glows */}
+          <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#3f7fd0]/10 blur-[130px]" />
+          <div className="pointer-events-none absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#8fc4ff]/10 blur-[140px]" />
 
-          <div className="relative z-10 flex flex-col items-center">
-            {/* brand mark — swap the "VK" text for an <Image> of Vedang once
-                the photo asset is ready; keeping it text-based for now so this
-                component has zero image dependencies to wire up */}
+          {/* Top Telemetry Bar */}
+          <div className="relative z-10 w-full max-w-4xl flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-3">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8fc4ff] opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#8fc4ff]"></span>
+              </span>
+              <span className="text-zinc-300">VEDANG KANADE</span>
+              <span className="text-zinc-600">/</span>
+              <span className="text-[#8fc4ff]">PORTFOLIO_V2</span>
+            </div>
+
+            <div className="hidden sm:flex items-center gap-3">
+              <span>PAREL, MUMBAI [IN]</span>
+              <span>•</span>
+              <span className="text-white">{timeString || "12:00:00 AM"}</span>
+            </div>
+          </div>
+
+          {/* Center Dynamic Greeting */}
+          <div className="relative z-10 flex flex-col items-center my-auto">
+            {/* Spinning Brand Monogram */}
             <motion.div
-              className={
-                "mb-8 flex h-11 w-11 items-center justify-center rounded-[10px] border font-mono text-sm transition-colors duration-300 " +
-                (inverted
-                  ? "border-[#0a3a6b] text-[#0a3a6b]"
-                  : "border-[#3f7fd0] text-[#8fc4ff]")
-              }
+              className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#3f7fd0]/50 bg-[#070709] font-mono text-base font-bold text-[#8fc4ff] shadow-[0_0_25px_rgba(63,127,208,0.25)]"
               animate={{
-                rotate: [0, 180, 360],
-                borderRadius: ["10px", "50%", "10px"],
+                rotate: [0, 90, 180, 270, 360],
+                borderRadius: ["16px", "28px", "16px", "28px", "16px"],
               }}
-              transition={{ duration: 2.4, repeat: Infinity, ease: EASE }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               VK
             </motion.div>
 
-            {/* greeting text — AnimatePresence with mode="wait" ensures the
-                outgoing word fully exits before the next one enters, which is
-                what keeps this from feeling like a jump-cut */}
-            <div className="flex h-[70px] items-center justify-center overflow-hidden">
+            {/* Time-Based Greeting Display */}
+            <div className="h-[90px] flex flex-col items-center justify-center text-center">
               <AnimatePresence mode="wait">
-                <motion.p
+                <motion.div
                   key={index}
-                  className={
-                    "text-center text-4xl font-medium tracking-tight transition-colors duration-300 " +
-                    GREETINGS[index].font +
-                    " " +
-                    (inverted ? "text-[#0a3a6b]" : "text-[#f5f7fa]")
-                  }
-                  initial={{
-                    opacity: 0,
-                    y: 16,
-                    scale: 0.92,
-                    filter: "blur(6px)",
-                  }}
-                  animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                  exit={{
-                    opacity: 0,
-                    y: -16,
-                    scale: 0.92,
-                    filter: "blur(6px)",
-                  }}
-                  transition={{ duration: 0.4, ease: EASE }}
+                  initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
+                  transition={{ duration: 0.35, ease: EASE }}
+                  className="flex flex-col items-center"
                 >
-                  {GREETINGS[index].text}
-                </motion.p>
+                  <p
+                    className={
+                      "text-3xl sm:text-5xl font-bold tracking-tight text-white font-serif " +
+                      greetings[index].font
+                    }
+                  >
+                    {greetings[index].text}
+                  </p>
+                  <p className="mt-2 font-mono text-xs text-[#8fc4ff]/80 tracking-wide uppercase">
+                    {greetings[index].sub}
+                  </p>
+                </motion.div>
               </AnimatePresence>
             </div>
+          </div>
 
-            {/* status row — progress bar animates width via Framer's `animate`
-                prop rather than a CSS transition loop, so it stays in sync
-                with the same `progress` state driving the percentage label */}
-            <div
-              className={
-                "mt-9 flex items-center gap-3 font-mono text-[11px] tracking-wide transition-colors duration-300 " +
-                (inverted ? "text-[#2c5c8f]" : "text-[#5c6066]")
-              }
-            >
-              <span>{progress >= 100 ? "READY" : "LOADING"}</span>
-              <div
-                className={
-                  "h-[2px] w-[180px] overflow-hidden rounded-full transition-colors duration-300 " +
-                  (inverted ? "bg-[#0a1423]/20" : "bg-[#181c22]")
-                }
-              >
-                <motion.div
-                  className="h-full bg-gradient-to-r from-[#3f7fd0] to-[#8fc4ff]"
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 0.2, ease: "linear" }}
-                />
-              </div>
-              <span
-                className={
-                  "w-8 text-right " +
-                  (inverted ? "text-[#0a3a6b]" : "text-[#8fc4ff]")
-                }
-              >
-                {Math.round(progress)}%
+          {/* Bottom High-Tech Loader Bar */}
+          <div className="relative z-10 w-full max-w-md flex flex-col items-center gap-3 font-mono text-xs">
+            <div className="w-full flex items-center justify-between text-[11px] text-zinc-400">
+              <span className="tracking-wider text-zinc-300">{statusLabel}</span>
+              <span className="text-[#8fc4ff] font-bold">
+                {Math.min(100, Math.round(progress))}%
               </span>
+            </div>
+
+            {/* Progress Track */}
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.06] border border-white/10 p-0.5">
+              <motion.div
+                className="h-full rounded-full bg-gradient-to-r from-[#3f7fd0] via-[#6fa8f5] to-[#8fc4ff] shadow-[0_0_12px_rgba(143,196,255,0.6)]"
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.15, ease: "linear" }}
+              />
+            </div>
+
+            <div className="flex items-center justify-between w-full text-[10px] text-zinc-500 pt-1">
+              <span>LAT: 18.9934° N, 72.8397° E</span>
+              <span>ENGINEERING_STACK_LOADED</span>
             </div>
           </div>
         </motion.div>
@@ -188,24 +226,3 @@ export default function HelloIntro({ onComplete }: HelloIntroProps = {}) {
     </AnimatePresence>
   );
 }
-
-/*
-  USAGE — drop it in as one line, anywhere inside <body>. It renders nothing
-  (`return null`) if it's already been shown this session, and nothing (a
-  fixed-position overlay) does not affect layout, so it's safe next to
-  Header/NavbarDock/Footer with no wrapping required:
-
-  <HelloIntro />
-
-  NOTE ON FONTS — font-devanagari / font-cyrillic / font-cjk are placeholder
-  utility classes. Add the actual font-family declarations to your
-  tailwind.config (or globals.css) pointing at Noto Sans Devanagari, Noto
-  Sans, and Noto Sans SC respectively — otherwise those three greetings will
-  fall back to your default font and may not render the script correctly.
-
-  NOTE ON SESSION — this currently replays every time the component mounts.
-  Gate it with sessionStorage (e.g. only render HelloIntro if
-  `!sessionStorage.getItem("intro-shown")`, then set that flag in
-  onComplete) so returning visitors within the same session don't see it
-  twice.
-*/
