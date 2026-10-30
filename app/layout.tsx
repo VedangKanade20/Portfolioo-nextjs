@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vedang Kanade | Full Stack Developer",
+  title: "Vedang Kanade | Software Engineer",
   description:
-    "Vedang Kanade - Full Stack Software Developer specializing in modern web systems, Java, Spring Boot, React, Node.js, Python, and cloud engineering.",
+    "Vedang Kanade - Software Engineer (Java Full Stack / BFSI) specializing in enterprise banking systems, Java, Spring Boot, React, Next.js, and AI research.",
 };
 
 export default function RootLayout({

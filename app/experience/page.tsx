@@ -14,32 +14,84 @@ export interface ExperienceItem {
   highlights: string[];
   technologies: string[];
   metrics?: string;
+  isCurrent?: boolean;
   seeAlso: string[];
 }
 
 const EXPERIENCES: ExperienceItem[] = [
   {
-    role: "Software Developer",
-    phoneticRole: "[ˈsɒft.weər dɪˈvɛl.ə.pər]",
+    role: "Software Engineer — Java Full Stack",
+    phoneticRole: "[ˈsɒft.weər ˌɛn.dʒɪˈnɪər]",
+    company: "C-Edge Technologies (TCS & SBI Joint Venture)",
+    period: "Jun 2026 - Present",
+    location: "Mumbai, India",
+    classification: "(current role / enterprise BFSI & core banking fintech)",
+    metrics: "Mission-Critical Banking Systems",
+    isCurrent: true,
+    summary:
+      "Engineering enterprise-scale banking settlement and financial reconciliation platforms at C-Edge Technologies (a joint venture between Tata Consultancy Services and State Bank of India). Developing high-concurrency Java Spring Boot backend services, multi-way transaction reconciliation, secure automated file downloaders, and hardened REST APIs.",
+    highlights: [
+      "Architect and maintain mission-critical BFSI backend microservices using Java 17+, Spring Boot 3, Hibernate/JPA, and Spring Security for financial transaction processing.",
+      "Engineered automated multi-party transaction settlement and ATM 5-way reconciliation pipelines, matching records across switches, core banking ledgers, and terminal logs.",
+      "Implemented secure, automated file download pipelines with cryptographic verification (BouncyCastle, SFTP, checksum validation) for automated banking settlement files.",
+      "Designed and optimized high-performance SQL queries and stored procedures across Oracle and PostgreSQL, reducing batch reconciliation processing windows.",
+      "Ensured regulatory compliance, zero-data-loss architecture, and strict audit logging across financial transactions.",
+    ],
+    technologies: [
+      "Java 17+",
+      "Spring Boot 3",
+      "Spring Security",
+      "Hibernate / JPA",
+      "Oracle SQL",
+      "PostgreSQL",
+      "BouncyCastle",
+      "Microservices",
+      "REST APIs",
+      "Maven",
+    ],
+    seeAlso: [
+      "ATM 5-Way Recon",
+      "Financial Settlement",
+      "BouncyCastle Encryption",
+      "TCS-SBI Banking JV",
+      "ACID Ledgers",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    phoneticRole: "[ˈsɒft.weər ˌɛn.dʒɪˈnɪər]",
     company: "Ardra Innovations",
     period: "Jan 2026 - May 2026",
     location: "Mumbai, India",
-    classification: "(professional role / full-stack engineering & business systems)",
+    classification: "(full-stack engineering & business systems)",
     metrics: "25% API Latency Reduction",
     summary:
-      "Engineered end-to-end MERN stack platforms including Team Sync and multi-tenant Inventory management systems, architecting resilient backend services, state synchronization, and scalable cloud deployments.",
+      "Engineered end-to-end full-stack platforms including Team Sync and multi-tenant Inventory management systems, architecting resilient backend services, state synchronization, and scalable cloud deployments.",
     highlights: [
       "Built and deployed scalable full-stack applications using MongoDB, Express.js, React.js, and Node.js for real-time inventory and team synchronization.",
       "Designed and optimized REST APIs with Express.js, reducing average endpoint response time by 25% via query execution plan profiling and compound indexing.",
       "Implemented resilient error-handling middleware, payload validation schemas, and automated database backups to prevent data corruption under concurrent load.",
       "Handled production deployment pipelines and environment configuration, reducing redundant API roundtrips and improving system efficiency.",
     ],
-    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs", "Git", "Cloud Deployment"],
-    seeAlso: ["Inventory Architecture", "Query Profiling", "Team Sync Platform", "Compound Indexing"],
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "REST APIs",
+      "Git",
+      "Cloud Deployment",
+    ],
+    seeAlso: [
+      "Inventory Architecture",
+      "Query Profiling",
+      "Team Sync Platform",
+      "Compound Indexing",
+    ],
   },
   {
-    role: "Full Stack Developer Intern",
-    phoneticRole: "[fʊl stæk dɪˈvɛl.ə.pər ˈɪn.tɜːn]",
+    role: "Full Stack Engineer Intern",
+    phoneticRole: "[fʊl stæk ˌɛn.dʒɪˈnɪər ˈɪn.tɜːn]",
     company: "DataCircles Technologies",
     period: "Oct 2025 - Jan 2026",
     location: "Remote / Hybrid",
@@ -53,16 +105,29 @@ const EXPERIENCES: ExperienceItem[] = [
       "Optimized relational database queries and normalized schemas in PostgreSQL, improving backend query throughput by 30%.",
       "Integrated AWS cloud services and Redis in-memory caching strategies to cache recurring dashboard queries, drastically slashing p95 latency.",
     ],
-    technologies: ["Node.js", "PostgreSQL", "Express.js", "Redis", "AWS", "MongoDB", "RBAC"],
-    seeAlso: ["Role-Based Access Control", "Redis In-Memory Caching", "PostgreSQL Normalization", "AWS S3"],
+    technologies: [
+      "Node.js",
+      "PostgreSQL",
+      "Express.js",
+      "Redis",
+      "AWS",
+      "MongoDB",
+      "RBAC",
+    ],
+    seeAlso: [
+      "Role-Based Access Control",
+      "Redis In-Memory Caching",
+      "PostgreSQL Normalization",
+      "AWS S3",
+    ],
   },
   {
-    role: "Backend Web Developer Intern",
-    phoneticRole: "[ˈbæk.ɛnd wɛb dɪˈvɛl.ə.pər]",
+    role: "Backend Software Engineer Intern",
+    phoneticRole: "[ˈbæk.ɛnd ˌɛn.dʒɪˈnɪər ˈɪn.tɜːn]",
     company: "UpWork",
     period: "Dec 2024 - Apr 2025",
     location: "Remote",
-    classification: "(contract / API development & schema optimization)",
+    classification: "(contract / API engineering & schema optimization)",
     metrics: "Production API Pipelines",
     summary:
       "Engineered production-grade asynchronous REST services with FastAPI and Express.js, managing complex data validation pipelines, relational schema indexing, and third-party integrations.",
@@ -72,11 +137,24 @@ const EXPERIENCES: ExperienceItem[] = [
       "Implemented secure JWT authentication, Pydantic request/response validation, and business logic for production-ready client applications.",
       "Containerized micro-services using Docker for deterministic local development and seamless production parity.",
     ],
-    technologies: ["FastAPI", "Python", "PostgreSQL", "Express.js", "MongoDB", "Docker", "JWT Auth"],
-    seeAlso: ["AsyncIO", "Pydantic Schemas", "Schema Normalization", "Docker Containers"],
+    technologies: [
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "Express.js",
+      "MongoDB",
+      "Docker",
+      "JWT Auth",
+    ],
+    seeAlso: [
+      "AsyncIO",
+      "Pydantic Schemas",
+      "Schema Normalization",
+      "Docker Containers",
+    ],
   },
   {
-    role: "Junior Full Stack Trainee",
+    role: "Junior Full Stack Engineering Trainee",
     phoneticRole: "[ˈdʒuː.njər fʊl stæk treɪˈniː]",
     company: "RSTForum",
     period: "Apr 2024 - Sept 2024",
@@ -87,11 +165,23 @@ const EXPERIENCES: ExperienceItem[] = [
       "Rigorous professional training in software engineering best practices, component lifecycle architecture, REST conventions, and automated deployment pipelines.",
     highlights: [
       "Built responsive, accessible web applications using React.js, Node.js, and MongoDB, following clean code architecture and component best practices.",
-      "Collaborated with senior developers to conduct code reviews, implement unit testing, and master modern Git branching workflows.",
+      "Collaborated with senior engineers to conduct code reviews, implement unit testing, and master modern Git branching workflows.",
       "Gained hands-on experience in API integration, dynamic state management with Context/Redux, and modern CI/CD deployment workflows.",
     ],
-    technologies: ["React.js", "Node.js", "MongoDB", "JavaScript", "HTML5/CSS3", "Git Workflows"],
-    seeAlso: ["Component Lifecycle", "REST Standards", "Git Workflows", "Clean Architecture"],
+    technologies: [
+      "React.js",
+      "Node.js",
+      "MongoDB",
+      "JavaScript",
+      "HTML5/CSS3",
+      "Git Workflows",
+    ],
+    seeAlso: [
+      "Component Lifecycle",
+      "REST Standards",
+      "Git Workflows",
+      "Clean Architecture",
+    ],
   },
 ];
 
@@ -116,10 +206,10 @@ export default function ExperiencePage() {
             </span>
           </div>
           <p className="mt-1 text-xs font-mono italic text-zinc-400">
-            (noun / career timeline, enterprise software systems & technical achievements)
+            (noun / career chronology, enterprise software systems & technical achievements)
           </p>
           <p className="mt-3 text-sm sm:text-base text-zinc-300 max-w-2xl font-sans leading-relaxed">
-            A track record of engineering full-stack platforms, optimizing backend latency, building secure APIs, and gaining hands-on exposure to high-reliability enterprise systems.
+            A track record of engineering core banking systems at C-Edge Technologies (TCS-SBI JV), architecting full-stack platforms, optimizing backend latency, and building secure financial transaction workflows.
           </p>
         </div>
 
@@ -128,37 +218,37 @@ export default function ExperiencePage() {
         </div>
       </div>
 
-      {/* Enterprise & Fintech Systems Focus Banner */}
+      {/* Enterprise & BFSI Focus Banner */}
       <div className="mb-12 rounded-2xl border border-[#3f7fd0]/40 bg-gradient-to-br from-[#0c1a30]/80 via-[#070709] to-[#050506] p-6 sm:p-8 backdrop-blur-xl shadow-[0_10px_35px_rgba(63,127,208,0.15)]">
         <div className="flex items-center gap-3 text-[#8fc4ff] mb-3">
           <FaShieldAlt size={20} />
           <span className="font-mono text-xs uppercase tracking-widest font-semibold">
-            Enterprise & Fintech Domain Exposure
+            BFSI & Enterprise Banking Domain Specialization
           </span>
         </div>
         <h2 className="text-xl sm:text-2xl font-bold text-white font-serif mb-2">
-          Banking-Grade Workflows & Scalable Backend Systems
+          C-Edge Technologies (TCS & SBI JV) • Banking Settlement & Reconciliation
         </h2>
         <p className="text-sm sm:text-[15px] leading-relaxed text-zinc-300 max-w-4xl font-sans">
-          Actively building and learning enterprise backend paradigms: understanding multi-party transaction settlement, financial reconciliation pipelines (e.g. ATM multi-way recon), secure file downloader workflows, cryptographic integrity (BouncyCastle), and hardened REST APIs built on Java Spring Boot and Node.js.
+          Currently engineering mission-critical BFSI software systems: building high-volume Java Spring Boot microservices, ATM 5-way reconciliation engines, automated settlement file download pipelines with cryptographic verification (BouncyCastle), and hardened REST APIs connecting banks and financial switches.
         </p>
 
         <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs pt-4 border-t border-white/[0.08]">
           <div className="flex items-center gap-2 text-zinc-300">
             <FaCheckCircle className="text-[#8fc4ff]" />
-            <span>ACID Transactions</span>
+            <span>ATM 5-Way Recon</span>
           </div>
           <div className="flex items-center gap-2 text-zinc-300">
             <FaCheckCircle className="text-[#8fc4ff]" />
-            <span>RBAC Authorization</span>
+            <span>BouncyCastle Crypto</span>
           </div>
           <div className="flex items-center gap-2 text-zinc-300">
             <FaCheckCircle className="text-[#8fc4ff]" />
-            <span>Query Plan Profiling</span>
+            <span>Java 17 & Spring Boot 3</span>
           </div>
           <div className="flex items-center gap-2 text-zinc-300">
             <FaCheckCircle className="text-[#8fc4ff]" />
-            <span>Redis In-Memory Cache</span>
+            <span>ACID Banking Ledgers</span>
           </div>
         </div>
       </div>
@@ -169,10 +259,18 @@ export default function ExperiencePage() {
           return (
             <article
               key={index}
-              className="group relative rounded-2xl border border-white/10 bg-[#070709]/90 p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#3f7fd0]/60 hover:shadow-[0_12px_40px_rgba(63,127,208,0.14)]"
+              className={`group relative rounded-2xl border p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 ${
+                exp.isCurrent
+                  ? "border-[#3f7fd0]/60 bg-[#080d1a]/95 shadow-[0_12px_45px_rgba(63,127,208,0.18)]"
+                  : "border-white/10 bg-[#070709]/90 hover:border-[#3f7fd0]/60 hover:shadow-[0_12px_40px_rgba(63,127,208,0.14)]"
+              }`}
             >
               {/* Subtle top light-blue accent */}
-              <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#8fc4ff]/30 to-transparent group-hover:via-[#8fc4ff] transition-all duration-500" />
+              <div
+                className={`absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#8fc4ff]/50 to-transparent ${
+                  exp.isCurrent ? "via-[#8fc4ff]" : "group-hover:via-[#8fc4ff]"
+                } transition-all duration-500`}
+              />
 
               {/* Headword row */}
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 border-b border-white/[0.08] pb-4">
@@ -188,7 +286,15 @@ export default function ExperiencePage() {
                 </div>
 
                 <div className="flex items-center gap-2 font-mono text-xs text-zinc-400">
-                  <span className="text-[#8fc4ff] font-semibold">{exp.company}</span>
+                  <span className="text-[#8fc4ff] font-semibold flex items-center gap-1.5">
+                    {exp.isCurrent && (
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8fc4ff] opacity-75"></span>
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-[#8fc4ff]"></span>
+                      </span>
+                    )}
+                    {exp.company}
+                  </span>
                   <span>•</span>
                   <span>{exp.period}</span>
                 </div>

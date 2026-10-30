@@ -32,7 +32,7 @@ export default function AboutPage() {
               </span>
             </div>
             <p className="mt-1 text-xs font-mono italic text-zinc-400">
-              (noun / engineer background, technical philosophy & enterprise focus)
+              (noun / engineer background, technical philosophy & enterprise banking focus)
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export default function AboutPage() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8fc4ff] opacity-75"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#8fc4ff]"></span>
               </span>
-              <span>Open to Roles</span>
+              <span>SWE @ C-Edge Technologies</span>
             </div>
           </div>
         </div>
@@ -56,24 +56,34 @@ export default function AboutPage() {
       {/* Primary Narrative — Full Bio */}
       <article className="rounded-2xl border border-white/10 bg-[#070709]/90 p-6 sm:p-8 backdrop-blur-xl">
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-5">
-          <h2 className="text-2xl font-bold text-white font-serif">
-            Software Developer
-          </h2>
-          <span className="font-mono text-xs text-[#8fc4ff]">
-            SYSTEMS & FULL-STACK
+          <div>
+            <h2 className="text-2xl font-bold text-white font-serif">
+              Software Engineer
+            </h2>
+            <p className="text-xs font-mono text-zinc-400 mt-0.5">
+              Java Full Stack • BFSI & Core Banking Systems
+            </p>
+          </div>
+          <span className="font-mono text-xs text-[#8fc4ff] bg-[#3f7fd0]/15 border border-[#3f7fd0]/30 rounded-full px-3 py-1">
+            C-EDGE TECHNOLOGIES (TCS-SBI JV)
           </span>
         </div>
 
         <div className="space-y-4 text-sm sm:text-base leading-relaxed text-zinc-300 font-sans">
           <p>
-            I&apos;m a <strong className="text-white font-semibold">Software Developer</strong> with hands-on experience building and maintaining full-stack applications, backend services, and business-focused software solutions.
+            I&apos;m a <strong className="text-white font-semibold">Software Engineer</strong> with hands-on experience building and maintaining full-stack applications, backend services, and business-focused software solutions.
           </p>
           <p>
             My experience spans technologies such as <strong className="text-white">Java, Spring Boot, JavaScript, TypeScript, React, Next.js, Node.js, SQL, and relational databases</strong>. I&apos;ve worked on projects involving REST APIs, database integration, authentication, application architecture, and end-to-end feature development.
           </p>
-          <p className="border-l-2 border-[#3f7fd0] pl-4 italic text-zinc-200 bg-[#3f7fd0]/5 py-2 rounded-r-lg">
-            Currently, I&apos;m gaining exposure to <strong className="text-[#8fc4ff]">fintech and banking-related software systems</strong>, strengthening my understanding of enterprise backend development, transaction-oriented workflows, and scalable application design.
-          </p>
+          <div className="border-l-2 border-[#3f7fd0] pl-4 italic text-zinc-200 bg-[#3f7fd0]/5 py-3 rounded-r-lg space-y-1">
+            <p>
+              Currently working as a <strong className="text-white">Software Engineer (Java Full Stack) at C-Edge Technologies</strong> (a joint venture between Tata Consultancy Services and State Bank of India).
+            </p>
+            <p className="text-xs font-mono text-[#8fc4ff]">
+              Focus: BFSI / Fintech software systems, ATM multi-way reconciliation, automated file downloaders, transaction-oriented workflows, and scalable core banking architecture.
+            </p>
+          </div>
           <p>
             I&apos;m passionate about writing clean, maintainable code, solving complex problems, and continuously improving my skills in data structures and algorithms, system design, and backend engineering.
           </p>
@@ -119,31 +129,31 @@ export default function AboutPage() {
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="rounded-xl border border-white/10 bg-[#070709]/80 p-5 backdrop-blur-xl">
           <div className="flex items-center gap-2.5 text-[#8fc4ff] mb-2 font-mono text-xs">
-            <FaLaptopCode size={16} />
-            <span className="font-semibold uppercase">Full-Stack Craft</span>
+            <FaShieldAlt size={16} />
+            <span className="font-semibold uppercase">BFSI & Fintech</span>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed">
-            Responsive, typed UIs in Next.js & React paired with modular REST/GraphQL APIs and serverless architectures.
+            Enterprise banking settlement, ATM multi-way reconciliation, automated file downloaders, cryptographic validation (BouncyCastle), and ACID ledgers.
           </p>
         </div>
 
         <div className="rounded-xl border border-white/10 bg-[#070709]/80 p-5 backdrop-blur-xl">
           <div className="flex items-center gap-2.5 text-[#8fc4ff] mb-2 font-mono text-xs">
             <FaDatabase size={16} />
-            <span className="font-semibold uppercase">Enterprise Data</span>
+            <span className="font-semibold uppercase">Java & Enterprise Backend</span>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed">
-            Relational modeling, transaction guarantees (ACID), schema indexing, and in-memory Redis caching layers.
+            High-performance Java 17+, Spring Boot microservices, Hibernate/JPA, relational modeling, and query execution plan optimization.
           </p>
         </div>
 
         <div className="rounded-xl border border-white/10 bg-[#070709]/80 p-5 backdrop-blur-xl">
           <div className="flex items-center gap-2.5 text-[#8fc4ff] mb-2 font-mono text-xs">
-            <FaShieldAlt size={16} />
-            <span className="font-semibold uppercase">Fintech & Banking</span>
+            <FaLaptopCode size={16} />
+            <span className="font-semibold uppercase">Full-Stack & AI Systems</span>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed">
-            Exposure to secure file downloaders, transaction reconciliation flows, RBAC authorization, and high-security pipelines.
+            Responsive, typed UIs in Next.js & React paired with AI research assistant tools, RAG vector retrieval, and Python FastAPI microservices.
           </p>
         </div>
       </section>
@@ -166,10 +176,10 @@ export default function AboutPage() {
 
       <Separator className="bg-white/10" />
 
-      {/* Achievements */}
+      {/* Achievements & Research */}
       <article className="rounded-2xl border border-white/10 bg-[#070709]/90 p-6 sm:p-8 backdrop-blur-xl">
         <h2 className="text-2xl font-bold text-white font-serif mb-4">
-          Honors & Recognition
+          Honors & Research Recognition
         </h2>
         <div className="space-y-4 font-sans text-sm">
           <div className="flex items-start gap-3 text-zinc-300">
@@ -179,7 +189,7 @@ export default function AboutPage() {
             <div>
               <strong className="text-white">AVISHKAR Research Convention Zonal Finalist:</strong>
               <p className="text-zinc-400 text-xs mt-0.5">
-                Represented university project work at AVISHKAR, organized by the University of Mumbai, successfully advancing past the competitive zonal evaluation.
+                Represented university project work at AVISHKAR, organized by the University of Mumbai, advancing past the competitive zonal evaluation with an intelligent research assistant system.
               </p>
             </div>
           </div>

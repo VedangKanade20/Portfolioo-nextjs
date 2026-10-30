@@ -232,9 +232,9 @@ export const SKILL_CARDS_DATA: SkillEditorialCardProps[] = [
     number: "05",
     headword: "tools",
     phonetic: "[tuːlz]",
-    classification: "(noun / developer tooling, diagnostics & design translation)",
+    classification: "(noun / engineering tooling, diagnostics & design translation)",
     definition:
-      "The mission-critical instrument stack powering day-to-day software development, API contract verification, distributed version control, and design-to-code translation.",
+      "The mission-critical instrument stack powering day-to-day software engineering, API contract verification, distributed version control, and design-to-code translation.",
     skills: [
       { name: "Git", icon: <SiGit />, badge: "Branching & Rebase" },
       { name: "GitHub", icon: <SiGithub />, badge: "Code Reviews & PRs" },

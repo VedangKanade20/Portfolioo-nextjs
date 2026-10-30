@@ -81,7 +81,7 @@ export default function Footer() {
             </div>
 
             <p className="text-zinc-400 leading-relaxed max-w-xs font-sans">
-              Full Stack Software Developer specializing in Java Spring Boot, React, Next.js, Node.js, Python, and scalable transactional architectures.
+              Software Engineer (Java Full Stack / BFSI) specializing in core banking reconciliation, Java Spring Boot, scalable backend services, and AI research.
             </p>
 
             <div className="space-y-1.5 font-mono text-[11px] text-zinc-400 pt-1">
@@ -143,7 +143,7 @@ export default function Footer() {
                   className="flex items-center gap-1.5 hover:text-white transition-colors"
                 >
                   <FaTerminal size={10} className="text-[#8fc4ff]" />
-                  <span>Developer Terminal</span>
+                  <span>Engineering Terminal</span>
                 </Link>
               </li>
               <li>

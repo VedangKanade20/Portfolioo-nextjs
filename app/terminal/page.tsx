@@ -102,7 +102,7 @@ export default function TerminalPage() {
         result = (
           <div className="space-y-2 text-xs text-zinc-300 leading-relaxed">
             <p>
-              <strong className="text-white">Vedang Kanade:</strong> Full Stack Software Developer with hands-on experience building and maintaining web applications, backend services, and business software.
+              <strong className="text-white">Vedang Kanade:</strong> Software Engineer (Java Full Stack) at <strong className="text-[#8fc4ff]">C-Edge Technologies</strong> (TCS & SBI Joint Venture). Specialized in BFSI, banking settlement reconciliation, and high-concurrency microservices.
             </p>
             <p>
               Final-year Master of Computer Applications (MCA) student with a B.Sc in Information Technology (8.4 CGPA). Passionate about writing clean, maintainable code, DSA, and resilient system design.
@@ -116,11 +116,11 @@ export default function TerminalPage() {
           <div className="space-y-1.5 text-xs font-mono text-zinc-300">
             <p className="text-[#8fc4ff]">├── [01] FRONTEND: React.js, Next.js, TypeScript, Tailwind, Zustand, Motion</p>
             <p className="text-[#8fc4ff]">├── [02] BACKEND:</p>
-            <p className="pl-4 text-zinc-400">│   ├── Java Full Stack: Spring Boot 3, Spring Security, Hibernate, Maven</p>
+            <p className="pl-4 text-zinc-400">│   ├── Java Full Stack: Java 17+, Spring Boot 3, Spring Security, Hibernate, Maven</p>
             <p className="pl-4 text-zinc-400">│   ├── JS/TS: Node.js, Express, Next.js Server API, NestJS, WebSockets</p>
             <p className="pl-4 text-zinc-400">│   ├── Python: FastAPI (AsyncIO), Django, Flask, Celery</p>
             <p className="pl-4 text-zinc-400">│   └── C# (.NET 8): ASP.NET Core, EF Core, LINQ</p>
-            <p className="text-[#8fc4ff]">├── [03] DATABASES: PostgreSQL, MongoDB, Redis (In-Memory Cache), MySQL</p>
+            <p className="text-[#8fc4ff]">├── [03] DATABASES: PostgreSQL, MongoDB, Redis (In-Memory Cache), MySQL, Oracle SQL</p>
             <p className="text-[#8fc4ff]">├── [04] DEVOPS: Docker, Kubernetes, AWS (EC2/S3), Nginx, GitHub Actions</p>
             <p className="text-[#8fc4ff]">└── [05] TOOLS: Git, GitHub, Postman, VS Code, IntelliJ IDEA, Linux CLI</p>
           </div>
@@ -129,13 +129,14 @@ export default function TerminalPage() {
 
       case "fintech":
       case "banking":
+      case "cedge":
         result = (
           <div className="space-y-2 text-xs text-zinc-300">
             <p className="text-[#8fc4ff] font-semibold">
-              FINTECH & BANKING SYSTEMS EXPOSURE:
+              C-EDGE TECHNOLOGIES (TCS-SBI JV) • BFSI & BANKING SYSTEMS:
             </p>
             <p>
-              Gaining exposure to transaction-oriented workflows, ATM multi-way settlement reconciliation, automated file downloader security pipelines, cryptographic signatures, and role-based access control (RBAC).
+              Engineering enterprise core banking and reconciliation workflows: ATM 5-way settlement reconciliation, automated file downloader security pipelines, cryptographic integrity (BouncyCastle), and role-based access control (RBAC).
             </p>
             <p className="text-zinc-400">
               Principles applied: ACID transaction guarantees, idempotent endpoints, zero-data-loss architecture, and p95 latency reduction.
@@ -147,13 +148,14 @@ export default function TerminalPage() {
       case "projects":
         result = (
           <div className="space-y-2 text-xs">
-            <p className="text-[#8fc4ff] font-semibold">SELECTED SHIPPED PLATFORMS:</p>
+            <p className="text-[#8fc4ff] font-semibold">SELECTED SHIPPED PLATFORMS & RESEARCH:</p>
             <div className="space-y-1 text-zinc-300 font-mono">
+              <p>• <strong className="text-white">FinSettle Core:</strong> Banking Settlement & ATM 5-Way Recon Engine (Java 17 / Spring Boot)</p>
+              <p>• <strong className="text-white">QuantIQ Finance AI:</strong> Transaction Anomaly & Fraud Detection (Java 21 / Kafka / ML)</p>
+              <p>• <strong className="text-white">NeuralDoc AI:</strong> Academic Research Assistant & Paper Synthesis (FastAPI / Vector RAG)</p>
               <p>• <strong className="text-white">Crew Canvas:</strong> Real-time Team Collaboration Tool (Next.js / WebSockets)</p>
               <p>• <strong className="text-white">Care Connect:</strong> NGO-Donor Platform with Inventory Auditing (MERN)</p>
               <p>• <strong className="text-white">Blogosphere:</strong> High-Performance Technical Publishing Platform</p>
-              <p>• <strong className="text-white">Chat Buzz:</strong> Instant Real-Time Messaging App</p>
-              <p>• <strong className="text-white">Salon Management:</strong> Resource & Appointment Scheduling System</p>
             </div>
             <p className="text-zinc-400 pt-1">
               Visit <Link href="/projects" className="text-[#8fc4ff] underline">/projects</Link> to inspect video demos and source repos.

@@ -19,7 +19,7 @@ export default function AboutCard() {
       </h3>
 
       <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-        Learn about my background, core engineering philosophies, and software development journey.
+        Learn about my background, core engineering philosophies, and software engineering journey.
       </p>
 
       <Link

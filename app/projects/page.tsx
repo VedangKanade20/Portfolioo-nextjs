@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Projects & Engineering Work | Vedang Kanade",
   description:
-    "Explore full-stack platforms, real-time collaboration applications, and production APIs engineered by Vedang Kanade.",
+    "Explore Java backend BFSI platforms, AI engines, research assistant tools, and full-stack systems engineered by Vedang Kanade.",
 };
 
 export default function ProjectsPage() {
@@ -18,7 +18,7 @@ export default function ProjectsPage() {
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-[#8fc4ff]" />
             <span className="font-mono text-xs uppercase tracking-widest text-[#8fc4ff]">
-              Selected Systems
+              Selected Systems & Research
             </span>
           </div>
           <div className="flex items-baseline gap-3 mt-2">
@@ -30,10 +30,10 @@ export default function ProjectsPage() {
             </span>
           </div>
           <p className="mt-1 text-xs font-mono italic text-zinc-400">
-            (noun / shipped software & architectural artifacts)
+            (noun / shipped software, financial settlement engines & AI research artifacts)
           </p>
           <p className="mt-3 text-sm sm:text-base text-zinc-300 max-w-2xl font-sans leading-relaxed">
-            Production full-stack web platforms, real-time collaboration tools, and API architectures engineered for high performance and reliability.
+            Enterprise Java backend architectures, BFSI financial reconciliation platforms, AI research assistants, and high-concurrency collaboration tools engineered for high reliability.
           </p>
         </div>
 
@@ -68,6 +68,11 @@ export default function ProjectsPage() {
                   <span className="absolute top-3 left-3 rounded-md bg-black/75 px-2 py-0.5 font-mono text-[11px] text-[#8fc4ff] border border-white/10 backdrop-blur-md">
                     FIG. {indexFormatted}
                   </span>
+                  {project.featured && (
+                    <span className="absolute top-3 right-3 rounded-md bg-[#3f7fd0]/80 px-2 py-0.5 font-mono text-[10px] text-white font-semibold backdrop-blur-md">
+                      FEATURED
+                    </span>
+                  )}
                 </div>
 
                 {/* Project Meta */}
@@ -79,6 +84,25 @@ export default function ProjectsPage() {
                     {project.type}
                   </span>
                 </div>
+
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans mb-4">
+                  {project.description}
+                </p>
+
+                {/* Tech Badges */}
+                {project.tech && (
+                  <div className="flex flex-wrap gap-1.5 mb-2">
+                    {project.tech.map((t, idx) => (
+                      <span
+                        key={idx}
+                        className="rounded-md border border-white/10 bg-white/[0.02] px-2 py-0.5 font-mono text-[11px] text-zinc-400 group-hover:border-[#3f7fd0]/40 transition-colors"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Action Buttons */}
@@ -90,7 +114,7 @@ export default function ProjectsPage() {
                   className="inline-flex items-center gap-2 rounded-lg bg-[#3f7fd0]/20 border border-[#3f7fd0]/50 px-3.5 py-1.5 text-xs font-mono font-medium text-[#8fc4ff] hover:bg-[#3f7fd0] hover:text-white transition-all shadow-[0_0_12px_rgba(63,127,208,0.2)]"
                 >
                   <FaExternalLinkAlt size={11} />
-                  <span>Live Demo</span>
+                  <span>Inspect System</span>
                 </Link>
 
                 {project.source && (

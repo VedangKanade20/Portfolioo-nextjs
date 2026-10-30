@@ -66,7 +66,7 @@ export default function Home() {
           <span className="h-1.5 w-1.5 rounded-full bg-[#8fc4ff] animate-pulse" />
           <span className="text-[#8fc4ff]">PAREL, MUMBAI</span>
           <span className="text-zinc-600">•</span>
-          <span>Full Stack Software Developer</span>
+          <span className="text-white font-semibold">SWE @ C-Edge Technologies (TCS & SBI JV)</span>
         </motion.div>
 
         <motion.h1
@@ -84,7 +84,7 @@ export default function Home() {
           variants={fadeUp}
           className="text-zinc-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-sans"
         >
-          Engineering full-stack architectures across modern TypeScript/React, high-performance Java Spring Boot & Python backends, and enterprise fintech systems with a focus on code craft and low latency.
+          Software Engineer specializing in Java Spring Boot, BFSI financial reconciliation, core banking platforms, modern TypeScript/React, and scalable cloud architectures.
         </motion.p>
 
         <motion.div
@@ -98,7 +98,7 @@ export default function Home() {
           </Link>
           <Link href="/experience">
             <button className="bg-[#3f7fd0]/20 border border-[#3f7fd0]/50 hover:bg-[#3f7fd0] text-[#8fc4ff] hover:text-white px-5 py-2.5 rounded-lg text-sm transition-all">
-              Work Timeline
+              Work & Experience
             </button>
           </Link>
           <Link href="/contact">
@@ -133,11 +133,11 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#8fc4ff]" />
               <span className="font-mono text-xs uppercase tracking-widest text-[#8fc4ff]">
-                Featured Systems
+                Featured Systems & Research
               </span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-bold text-white font-serif mt-1">
-              Recent Work
+              Recent Engineering Work
             </h2>
           </div>
 
@@ -173,6 +173,11 @@ export default function Home() {
                     playsInline
                     className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   />
+                  {project.featured && (
+                    <span className="absolute top-2 right-2 rounded-md bg-[#3f7fd0]/80 px-2 py-0.5 font-mono text-[9px] text-white font-semibold backdrop-blur-md">
+                      FEATURED
+                    </span>
+                  )}
                 </div>
                 <div className="flex items-baseline justify-between gap-2 mb-1">
                   <h3 className="text-lg font-bold text-white group-hover:text-[#8fc4ff] transition-colors">
@@ -182,6 +187,9 @@ export default function Home() {
                     {project.type}
                   </span>
                 </div>
+                <p className="text-xs text-zinc-400 line-clamp-2 mt-1 font-sans">
+                  {project.description}
+                </p>
               </div>
 
               <div className="mt-4 pt-3 border-t border-white/[0.08] flex gap-3 text-xs font-mono">
@@ -192,7 +200,7 @@ export default function Home() {
                   className="flex items-center gap-1.5 text-[#8fc4ff] hover:text-white transition-colors"
                 >
                   <FaExternalLinkAlt size={10} />
-                  <span>Visit</span>
+                  <span>Inspect System</span>
                 </a>
                 {project.source && (
                   <a
@@ -202,7 +210,7 @@ export default function Home() {
                     className="flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
                   >
                     <FaGithub size={12} />
-                    <span>GitHub</span>
+                    <span>Source</span>
                   </a>
                 )}
               </div>
@@ -272,7 +280,7 @@ export default function Home() {
                   <span className="uppercase font-semibold tracking-wider">Hacker CLI</span>
                 </div>
                 <h3 className="text-xl font-bold text-white font-serif mb-2 group-hover:text-[#8fc4ff] transition-colors">
-                  Developer Terminal
+                  Engineering Terminal
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans">
                   Command-line interface with interactive unix utilities: type `skills`, `fintech`, `sudo hire`, toggle Matrix rain, or run system diagnostics.

@@ -1,13 +1,11 @@
-
 "use client";
 
-import React, { useState, useEffect, useId } from "react";
-
-import { motion } from "motion/react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export interface ContainerTextFlipProps {
-  /** Array of words to cycle through in the animation */
+  /** Array of titles to cycle through in the animation */
   words?: string[];
   /** Time in milliseconds between word transitions */
   interval?: number;
@@ -15,70 +13,64 @@ export interface ContainerTextFlipProps {
   className?: string;
   /** Additional CSS classes to apply to the text */
   textClassName?: string;
-  /** Duration of the transition animation in milliseconds */
-  animationDuration?: number;
 }
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export function ContainerTextFlip({
-  words = ["Software Engineer", "Software Developer", "Full Stack Engineer"],
-  interval = 3000,
+  words = [
+    "Software Engineer",
+    "Java Full Stack Engineer",
+    "Fintech Systems Engineer",
+    "Backend Architecture Engineer",
+  ],
+  interval = 3200,
   className,
   textClassName,
-  animationDuration = 700,
 }: ContainerTextFlipProps) {
-  const id = useId();
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [width, setWidth] = useState(100);
-  const textRef = React.useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    if (textRef.current) setWidth(textRef.current.scrollWidth + 20);
-  }, [currentWordIndex]);
-
-  useEffect(() => {
-    const intervalId = setInterval(
-      () => setCurrentWordIndex(i => (i + 1) % words.length),
-      interval
-    );
-    return () => clearInterval(intervalId);
-  }, [words, interval]);
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, interval);
+    return () => clearInterval(timer);
+  }, [words.length, interval]);
 
   return (
-    <motion.p
-      layout
-      layoutId={`words-here-${id}`}
-      animate={{ width }}
-      transition={{ duration: animationDuration / 2000 }}
+    <div
       className={cn(
-        "inline-block rounded-lg px-3 py-1 text-center text-xl font-bold font-mono text-black md:text-3xl dark:text-[#8fc4ff]",
-        "[background:linear-gradient(to_bottom,#f3f4f6,#e5e7eb)]",
-        "shadow-[inset_0_-1px_#d1d5db,inset_0_0_0_1px_#d1d5db,_0_2px_4px_#d1d5db]",
-        "dark:[background:linear-gradient(to_bottom,#0c1a30,#070e1b)]",
-        "dark:shadow-[inset_0_-1px_#10171e,inset_0_0_0_1px_rgba(143,196,255,0.3),_0_2px_12px_rgba(63,127,208,0.25)]",
+        "relative inline-flex items-center justify-center overflow-hidden rounded-xl border border-white/10 px-5 py-2 font-mono text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-[#8fc4ff]",
+        "bg-gradient-to-b from-[#0a1426] via-[#070d18] to-[#04070d]",
+        "shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_4px_20px_rgba(63,127,208,0.2)]",
         className
       )}
-      key={words[currentWordIndex]}
     >
-      <motion.div
-        transition={{
-          duration: animationDuration / 1000,
-          ease: "easeInOut",
-        }}
-        className={cn("inline-block", textClassName)}
-        ref={textRef}
-        layoutId={`word-div-${words[currentWordIndex]}-${id}`}
-      >
-        {words[currentWordIndex].split("").map((letter, i) => (
-          <motion.span
-            key={i}
-            initial={{ opacity: 0, filter: "blur(6px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ delay: i * 0.015 }}
-          >
-            {letter}
-          </motion.span>
-        ))}
-      </motion.div>
-    </motion.p>
+      {/* Subtle glowing pill background pulse */}
+      <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-r from-[#3f7fd0]/10 via-transparent to-[#8fc4ff]/10" />
+
+      {/* Height anchor to prevent layout shifts */}
+      <div className="invisible h-8 sm:h-9 select-none aria-hidden">
+        {words.reduce((longest, current) =>
+          current.length > longest.length ? current : longest
+        )}
+      </div>
+
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={index}
+          initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, y: -18, filter: "blur(6px)" }}
+          transition={{ duration: 0.45, ease: EASE }}
+          className={cn(
+            "absolute inset-0 flex items-center justify-center text-center whitespace-nowrap px-4",
+            textClassName
+          )}
+        >
+          {words[index]}
+        </motion.span>
+      </AnimatePresence>
+    </div>
   );
 }
